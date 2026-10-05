@@ -193,6 +193,8 @@ function Add-ManualSiteNavigation {
 "@
     $content = Get-Content -Raw -LiteralPath $_.FullName -Encoding UTF8
     $content = $content.Replace('<nav class="nav">', $navigation)
+    $favicon = "    <link rel=`"icon`" type=`"image/png`" href=`"$prefix${SitePrefix}assets/images/sick-s-logo.png`" />"
+    $content = $content.Replace('  </head>', "$favicon`n  </head>")
     Set-Content -LiteralPath $_.FullName -Value $content -Encoding UTF8
   }
 }

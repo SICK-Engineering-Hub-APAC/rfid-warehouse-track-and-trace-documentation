@@ -30,10 +30,14 @@ for (const file of files) {
   const tree = parse(await readFile(path.join(root, file), 'utf8'));
   const ids = new Set();
   const links = [];
+  const icons = [];
   visit(tree, node => {
     const attrs = Object.fromEntries((node.attrs || []).map(attr => [attr.name, attr.value]));
     if (attrs.id) ids.add(attrs.id);
     if (node.tagName === 'a' && attrs.name) ids.add(attrs.name);
+    if (node.tagName === 'link' && attrs.rel?.toLowerCase().split(/\s+/).includes('icon') && attrs.href) {
+      icons.push(attrs.href);
+    }
     for (const attribute of ['href', 'src', 'poster']) {
       if (attrs[attribute]) links.push(attrs[attribute]);
     }
@@ -42,10 +46,11 @@ for (const file of files) {
       if (target) links.push(target.trim());
     }
   });
-  documents.set(file, { ids, links });
+  documents.set(file, { ids, links, icons });
 }
 
 for (const [file, document] of documents) {
+  if (document.icons.length === 0) errors.push(`${file}: missing browser-tab icon`);
   for (const link of document.links) {
     let target;
     try {
@@ -79,5 +84,5 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${documents.size} HTML pages and their local links/assets across ${files.size} files.`);
+  console.log(`Validated ${documents.size} HTML pages, browser-tab icons, and local links/assets across ${files.size} files.`);
 }
