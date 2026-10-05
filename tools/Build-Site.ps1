@@ -174,25 +174,17 @@ function Convert-VersionCompatibilityToText {
     return "Compatible app: " + ($appVersions -join ", ")
 }
 
-function Add-ManualSiteNavigation {
+function Add-ManualFavicon {
   param(
     [string]$ManualRoot,
-    [string]$SitePrefix,
-    [string]$VersionsPrefix
+    [string]$SitePrefix
   )
 
   Get-ChildItem -LiteralPath $ManualRoot -Filter "*.html" -Recurse -File | ForEach-Object {
     $relativeDirectory = $_.DirectoryName.Substring($ManualRoot.Length).Trim('\', '/')
     $depth = if ($relativeDirectory) { @($relativeDirectory -split '[\\/]').Count } else { 0 }
     $prefix = "../" * $depth
-    $navigation = @"
-<nav class="nav">
-      <div class="nav-group">Documentation</div>
-      <a href="$prefix${SitePrefix}index.html">Documentation Home</a>
-      <a href="$prefix${VersionsPrefix}versions.html">Manual Versions</a>
-"@
     $content = Get-Content -Raw -LiteralPath $_.FullName -Encoding UTF8
-    $content = $content.Replace('<nav class="nav">', $navigation)
     $favicon = "    <link rel=`"icon`" type=`"image/png`" href=`"$prefix${SitePrefix}assets/images/sick-s-logo.png`" />"
     $content = $content.Replace('  </head>', "$favicon`n  </head>")
     Set-Content -LiteralPath $_.FullName -Value $content -Encoding UTF8
@@ -274,7 +266,7 @@ foreach ($manifestFile in $manifestFiles) {
         }
 
         Copy-Item -Path $sourceVersionPath -Destination (Join-Path $manualOutputRoot $version) -Recurse -Force
-        Add-ManualSiteNavigation -ManualRoot (Join-Path $manualOutputRoot $version) -SitePrefix "../../../" -VersionsPrefix "../"
+        Add-ManualFavicon -ManualRoot (Join-Path $manualOutputRoot $version) -SitePrefix "../../../"
 
         if ($version -eq [string]$manifest.latest) {
             $latestFound = $true
@@ -299,7 +291,7 @@ foreach ($manifestFile in $manifestFiles) {
         $latestSourceVersionPath = Join-Path $manualRoot "versions/$($manifest.latest)"
         Copy-Item -Path $latestSourceVersionPath -Destination $aliasRoot -Recurse -Force
         Update-AliasHtmlPaths -AliasRoot $aliasRoot -Slug $slug
-        Add-ManualSiteNavigation -ManualRoot $aliasRoot -SitePrefix "../" -VersionsPrefix "../manuals/$slug/"
+        Add-ManualFavicon -ManualRoot $aliasRoot -SitePrefix "../"
     }
 
     $manualEntries += [pscustomobject]@{
