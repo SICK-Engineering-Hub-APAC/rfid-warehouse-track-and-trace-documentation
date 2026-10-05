@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Asset Movements · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="movements.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a
+            class="active"
+            data-current="movements.html"
+            href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Asset Movements</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Asset Movements</h1>
+          <p class="lead">
+            Monitor planned movements and edit or delete records while they are
+            still Pending.
+          </p>
+          <h2>Monitor Asset Movements</h2>
+          <p>
+            Use the status counters and filters to find a movement. Open a row
+            to review source, destination, planned/completed time and failure
+            reason.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Asset Movements monitoring"
+              loading="lazy"
+              src="../assets/images/ui/movements-list.jpg"
+            />
+            <figcaption>Asset Movements monitoring</figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Pending Asset Movement details panel"
+              loading="lazy"
+              src="../assets/images/ui/movement-details-pending-full.png"
+            />
+            <figcaption>
+              Movement Details — review Assets, source/destination, status and
+              planned/completed timing.
+            </figcaption>
+          </figure>
+          <h3>What to do by status</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Recommended action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PENDING</td>
+                  <td>
+                    Review the planned Shipment, source and destination. While
+                    the record remains Pending, you may Edit the allowed fields
+                    or Delete the movement if it was created by mistake or is no
+                    longer required. Once the status changes, treat the record
+                    as operational history rather than a planning record.
+                  </td>
+                </tr>
+                <tr>
+                  <td>COMPLETED</td>
+                  <td>
+                    No action normally required. Verify Asset Location/Status if
+                    investigating.
+                  </td>
+                </tr>
+                <tr>
+                  <td>TIMED_OUT</td>
+                  <td>
+                    Check route/device connectivity and physical location.
+                    Review related Alert and Scan History.
+                  </td>
+                </tr>
+                <tr>
+                  <td>FAILED</td>
+                  <td>
+                    Read the failure reason; correct
+                    route/configuration/Shipment mismatch before retrying.
+                  </td>
+                </tr>
+                <tr>
+                  <td>CANCELLED</td>
+                  <td>
+                    Confirm a replacement plan is created only if the movement
+                    still needs to occur.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Edit a Pending movement</h2>
+          <p>
+            A Pending record can be edited before the physical movement
+            completes. Open the record and choose Edit; only allowed fields are
+            enabled.
+          </p>
+          <ol class="steps">
+            <li>
+              Open <b>Asset Movements</b> and locate the required record with
+              status <b>Pending</b>.
+            </li>
+            <li>Open the record and choose <b>Edit</b>.</li>
+            <li>
+              Review the Shipment ID, Source Location and Destination Location.
+            </li>
+            <li>
+              Change only controls that are enabled. Source Location is normally
+              shown as read-only context.
+            </li>
+            <li>
+              Select <b>Save</b>, then confirm the updated movement Summary
+              before moving the physical Assets.
+            </li>
+          </ol>
+          <h3>Storage movement — Pending edit example</h3>
+          <p>
+            For a Storage movement, the configured receiving/source Location is
+            shown as read-only context. Where permitted, the shipment ID and the
+            Destination Location can be changed to another approved Warehouse
+            while the record remains Pending.
+          </p>
+          <figure class="figure focus">
+            <img
+              alt="Edit Pending Storage movement"
+              loading="lazy"
+              src="../assets/images/ui/movement-edit-storage.png"
+            />
+            <figcaption>
+              Edit Pending Storage movement — enabled controls show which values
+              are allowed to change.
+            </figcaption>
+          </figure>
+          <h3>Dispatch movement — Pending edit example</h3>
+          <p>
+            For Dispatch movement, Source Location shows the current Warehouse
+            and Destination shows the configured Dispatch/Receiving area which
+            are read-only context fields. Only the shipment ID field can be
+            changed.
+          </p>
+          <figure class="figure focus">
+            <img
+              alt="Edit Pending Dispatch movement"
+              loading="lazy"
+              src="../assets/images/ui/movement-edit-dispatch.png"
+            />
+            <figcaption>
+              Edit Pending Dispatch movement — source context is shown while
+              only permitted fields are editable.
+            </figcaption>
+          </figure>
+          <section class="section-anchor" id="delete-pending-movement">
+            <h2>Delete a Pending movement</h2>
+            <p>
+              A movement can be deleted only while its status is <b>PENDING</b>.
+              Use Delete when a movement request was created by mistake, is no
+              longer required, or must be replaced with a different plan.
+            </p>
+            <div class="callout">
+              <strong>What deletion means</strong>
+              Deleting a Pending movement removes the planned request before it
+              is completed by RFID observations. It does not move the physical
+              Asset and does not create a replacement movement automatically.
+            </div>
+            <ol class="steps">
+              <li>
+                Open <b>Asset Movements</b> and locate the required record.
+              </li>
+              <li>Confirm that its status is still <b>PENDING</b>.</li>
+              <li>Open the record and choose <b>Delete</b>.</li>
+              <li>
+                Review the confirmation message and verify the Shipment, Source
+                Location and Destination Location.
+              </li>
+              <li>Confirm the deletion.</li>
+              <li>
+                If the physical movement is still required, create a new
+                movement request with the correct information.
+              </li>
+            </ol>
+            <figure class="figure">
+              <img
+                alt="Delete Pending Asset Movement confirmation"
+                loading="lazy"
+                src="../assets/images/ui/movement-delete-confirm-full.png"
+              />
+              <figcaption>
+                Delete Pending movement — verify the selected record before
+                confirming deletion.
+              </figcaption>
+            </figure>
+            <h3>When Delete is appropriate</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Situation</th>
+                    <th>Recommended action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Movement was created by mistake</td>
+                    <td>Delete it while it is still Pending.</td>
+                  </tr>
+                  <tr>
+                    <td>Movement is no longer required</td>
+                    <td>
+                      Delete it before the Assets begin the planned physical
+                      movement.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Shipment or destination needs a small allowed correction
+                    </td>
+                    <td>
+                      Use <b>Edit</b> instead of deleting when the required
+                      field is available in the edit panel.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>A different movement plan is required</td>
+                    <td>
+                      Delete the incorrect Pending record, then create the
+                      correct movement request.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Status is no longer Pending</td>
+                    <td>
+                      Do not delete it. Review the movement status, Scan
+                      Histories and related Alerts instead.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

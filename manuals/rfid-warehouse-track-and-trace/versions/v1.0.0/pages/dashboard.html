@@ -1,0 +1,287 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      Dashboard &amp; Movement Planning · RFID Warehouse Track and Trace
+    </title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="dashboard.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a
+            class="active"
+            data-current="dashboard.html"
+            href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Dashboard &amp; Movement Planning</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Dashboard &amp; Movement Planning</h1>
+          <p class="lead">
+            Use the Dashboard to review operational summaries and create
+            approved Storage or Dispatch movement requests.
+          </p>
+          <h2>Dashboard overview</h2>
+          <p>
+            The Dashboard combines inventory/device summaries, recent RFID
+            activity and movement-planning actions.
+          </p>
+          <h3>Operational summary components</h3>
+          <p>
+            Use the summary sections to check system scope, Asset workflow state
+            and recent RFID activity.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Section</th>
+                  <th>What it shows</th>
+                  <th>How to use it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>KPI cards</td>
+                  <td>
+                    Total Assets, Total Devices/Scanners, Total Locations, Total
+                    Racks and Unresolved Alerts.
+                  </td>
+                  <td>
+                    Use as a quick configuration and operational health summary.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Assets by Location</td>
+                  <td>Asset distribution across configured Locations.</td>
+                  <td>
+                    Check where inventory is concentrated or whether Assets
+                    appear in an unexpected area.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Assets by Status</td>
+                  <td>Current Asset workflow-state distribution.</td>
+                  <td>
+                    Review the balance of RECEIVED, IN_STORAGE,
+                    READY_FOR_DISPATCH and DISPATCHED Assets.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Devices by Location</td>
+                  <td>Configured Device distribution across Locations.</td>
+                  <td>
+                    Check expected device coverage at each operational area.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Racks by Location</td>
+                  <td>Rack distribution across Locations.</td>
+                  <td>
+                    Review storage footprint and investigate unexpected rack
+                    counts.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Scan Trends</td>
+                  <td>Daily RFID scan activity for the most recent 30 days.</td>
+                  <td>
+                    Identify periods with unusually low or high scan activity.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Recent Scans</td>
+                  <td>
+                    Latest RFID records with Material, Tag ID, Location, Rack,
+                    Check State, Device and scan time.
+                  </td>
+                  <td>
+                    Use for a quick trace before opening Scan Histories for
+                    deeper investigation.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="Dashboard top section with movement actions and KPI cards"
+              loading="lazy"
+              src="../assets/images/ui/dashboard-live-overview.png"
+            />
+            <figcaption>
+              Dashboard — movement actions, KPI cards and Asset
+              distribution/status summaries.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Dashboard lower section with device, rack, scan trend and recent scan information"
+              loading="lazy"
+              src="../assets/images/ui/dashboard-live-activity.png"
+            />
+            <figcaption>
+              Dashboard — device/rack summaries, 30-day scan trend and Recent
+              Scans.
+            </figcaption>
+          </figure>
+          <h3>Create Storage movement requests</h3>
+          <ol class="steps">
+            <li>Choose <b>Assets To Warehouse</b>.</li>
+            <li>Select the Shipment ID.</li>
+            <li>Select the destination Warehouse for the Storage movement.</li>
+            <li>
+              Continue. The system creates Pending records for eligible Assets
+              and skips ineligible or already-planned Assets.
+            </li>
+            <li>
+              Move the physical Assets through the expected source EXIT and
+              destination ENTRY detection points.
+            </li>
+            <li>
+              Open Asset Movements to monitor progress. Pending records can be
+              edited before completion when the Edit action is available.
+            </li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Storage movement planning dialog with Shipment and Warehouse selected"
+              loading="lazy"
+              src="../assets/images/ui/dashboard-storage-planning-form.png"
+            />
+            <figcaption>
+              Storage planning — select the Shipment and destination Warehouse
+              before continuing.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Bring Assets to Warehouse"
+              loading="lazy"
+              src="../assets/images/ui/workflow-warehouse.jpg"
+            />
+            <figcaption>Bring Assets to Warehouse</figcaption>
+          </figure>
+          <h3>Create Dispatch movement requests</h3>
+          <ol class="steps">
+            <li>Choose <b>Assets To Dispatch</b>.</li>
+            <li>Select the Shipment ID.</li>
+            <li>
+              Review Warehouse From. It shows the current Warehouse(s), Rack(s)
+              and Asset count(s) for the selected Shipment. It is read-only; you
+              do not select a Warehouse here.
+            </li>
+            <li>
+              Continue to create Pending records toward the configured
+              Dispatch/Receiving area.
+            </li>
+            <li>
+              Move the physical Assets through the expected Warehouse EXIT and
+              Dispatch/Receiving ENTRY detection points.
+            </li>
+            <li>
+              Open Asset Movements to monitor or adjust allowed values while the
+              records are still Pending. After staging is complete, use the
+              Dispatch Checkout application.
+            </li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Dispatch movement planning dialog showing Shipment and read-only Warehouse From"
+              loading="lazy"
+              src="../assets/images/ui/dashboard-dispatch-planning-form.png"
+            />
+            <figcaption>
+              Dispatch planning — Warehouse From is informational; select the
+              Shipment and review current Warehouse/Rack counts before
+              continuing.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Bring Assets to Dispatch Checkout"
+              loading="lazy"
+              src="../assets/images/ui/workflow-dispatch.jpg"
+            />
+            <figcaption>Bring Assets to Dispatch Checkout</figcaption>
+          </figure>
+          <div class="callout good">
+            <strong>Pending requests remain adjustable</strong> Movement
+            planning creates Pending records. Before a physical movement
+            completes, open Asset Movements and use Edit to change only the
+            inputs that the current record allows. Read-only fields remain
+            locked. <a href="movements.html">See Asset Movements.</a>
+          </div>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

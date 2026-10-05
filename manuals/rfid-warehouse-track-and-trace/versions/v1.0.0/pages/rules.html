@@ -1,0 +1,588 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>RFID &amp; Alert Rules · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="rules.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a
+            class="active"
+            data-current="rules.html"
+            href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">RFID &amp; Alert Rules</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>RFID Rules &amp; Alert Rules</h1>
+          <p class="lead">
+            Processing Rules apply direct Asset updates from trusted operations.
+            Movement Rules validate planned source-to-destination movement.
+            Alert Rules decide which validation failures create user alerts.
+          </p>
+
+          <section class="section-anchor" id="rule-type-definitions">
+            <h2>Rule types and when to create them</h2>
+            <p>
+              Create a new rule only when the required workflow, route or alert
+              condition is not already covered by an existing enabled rule.
+              Prefer updating an existing rule when the same operational
+              behavior is changing. Avoid duplicate or overlapping rules because
+              one RFID event should resolve to one clear system action.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rule type</th>
+                    <th>Definition</th>
+                    <th>Typical use</th>
+                    <th>Create a new rule when...</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Processing Rule</b></td>
+                    <td>
+                      Defines how one accepted operation from selected source
+                      Device(s) directly updates an Asset. It can validate the
+                      current Asset status, require Shipment/Rack information,
+                      set a target status, assign the scanned Location/Rack, or
+                      clear the Rack.
+                    </td>
+                    <td>
+                      Handheld RECEIVE, Handheld STOCK_TAKE, Dispatch Checkout,
+                      or the final dispatch transition.
+                    </td>
+                    <td>
+                      A new trusted Device/application operation must perform a
+                      direct Asset state/location update and no existing
+                      Processing Rule already matches that operation and source.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Movement Rule</b></td>
+                    <td>
+                      Defines a valid planned physical route between source and
+                      destination observations. It matches the source
+                      Device/direction, destination Device/direction, operation
+                      and eligible Asset status, then applies the configured
+                      timeout and completion behavior.
+                    </td>
+                    <td>
+                      Storage movement from the receiving/dispatch area to a
+                      Warehouse, or Dispatch movement from a Warehouse to the
+                      configured dispatch staging area.
+                    </td>
+                    <td>
+                      A new approved route, Gantry pair, source/destination
+                      combination, direction pattern, timeout, or completion
+                      behavior is introduced and the route has been separately
+                      validated for operation.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>Alert Rule</b></td>
+                    <td>
+                      Converts a supported validation condition into a
+                      user-facing Alert. It defines which condition should
+                      notify users and how the Alert is presented, including
+                      severity, title and description.
+                    </td>
+                    <td>
+                      Invalid source/destination/route, out-of-order movement,
+                      timeout, Shipment mismatch, tag-owner conflict, or another
+                      supported validation condition.
+                    </td>
+                    <td>
+                      Users need a notification for a supported condition that
+                      is not already covered by an existing Alert Rule, or a
+                      separately validated workflow requires its own clearly
+                      defined alert behavior.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <strong>Processing Rule vs Movement Rule:</strong>
+              use a Processing Rule when one accepted operation is enough to
+              perform the required Asset update. Use a Movement Rule when the
+              system must validate a physical route using both source and
+              destination observations.
+            </div>
+            <div class="callout warn">
+              <strong
+                >Do not create rules just because a new Device is added.</strong
+              >
+              Create a new rule only when that Device introduces a new
+              operational behavior or route that is not already covered. If the
+              Device should behave exactly like an existing source and the rule
+              supports selecting multiple source Devices, add it to the existing
+              rule instead of creating a duplicate.
+            </div>
+            <h3>Before creating a new rule</h3>
+            <ol class="steps">
+              <li>
+                Check the existing enabled rules for the same operation,
+                Device(s), route and Asset status.
+              </li>
+              <li>
+                Confirm that the new workflow or route is approved and tested
+                for the site.
+              </li>
+              <li>
+                Use the narrowest Device/status/condition scope needed to avoid
+                ambiguous matches.
+              </li>
+              <li>
+                For Movement Rules, verify source/destination direction, timeout
+                and completion behavior with the real Gantry flow.
+              </li>
+              <li>
+                For Alert Rules, confirm that the condition is not already
+                covered by another enabled rule.
+              </li>
+              <li>
+                Create the rule disabled when possible, test it with a known
+                Asset/workflow, then enable it for operational use.
+              </li>
+            </ol>
+            <div class="callout" id="rule-change-guidance">
+              <strong>Update instead of creating a duplicate when:</strong>
+              the same rule purpose remains valid but a Device selection,
+              eligible status, timeout, severity, title or another configuration
+              value needs to change. After any rule change, repeat the relevant
+              controlled workflow test.
+            </div>
+          </section>
+          <h2>Default RFID rules — reference configuration</h2>
+          <div class="callout">
+            The default rules shown here describe the reference site
+            configuration. They are not a fixed limit on the number of
+            Locations, Devices, Gantries, or movement routes. When the
+            deployment expands, create or update rules for the additional
+            configured paths while avoiding overlapping or ambiguous matches.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rule</th>
+                  <th>Type</th>
+                  <th>Source / route</th>
+                  <th>Operation</th>
+                  <th>Eligible current status</th>
+                  <th>Result</th>
+                  <th>Important behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Handheld receive stores asset in scanned rack</td>
+                  <td>Processing</td>
+                  <td>Handheld scanners</td>
+                  <td>RECEIVE</td>
+                  <td>RECEIVED</td>
+                  <td>IN_STORAGE</td>
+                  <td>Rack required; scanned location/rack assigned.</td>
+                </tr>
+                <tr>
+                  <td>Handheld stock take stores asset in scanned rack</td>
+                  <td>Processing</td>
+                  <td>Handheld scanners</td>
+                  <td>STOCK_TAKE</td>
+                  <td>RECEIVED / IN_STORAGE</td>
+                  <td>IN_STORAGE</td>
+                  <td>Rack required; confirms/updates storage.</td>
+                </tr>
+                <tr>
+                  <td>Checkout stages outbound dispatch</td>
+                  <td>Processing</td>
+                  <td>R1 Checkout Reader</td>
+                  <td>DISPATCH</td>
+                  <td>IN_STORAGE / READY_FOR_DISPATCH</td>
+                  <td>READY_FOR_DISPATCH</td>
+                  <td>Shipment required; clears rack.</td>
+                </tr>
+                <tr>
+                  <td>R1 dispatch gantry finalizes outbound dispatch</td>
+                  <td>Processing</td>
+                  <td>R1 Dispatch Gantry</td>
+                  <td>DISPATCH + EXIT</td>
+                  <td>READY_FOR_DISPATCH</td>
+                  <td>DISPATCHED</td>
+                  <td>Final outbound transition.</td>
+                </tr>
+                <tr>
+                  <td>Storage movement: R1 → Warehouse 1</td>
+                  <td>Movement</td>
+                  <td>R1 Dispatch Gantry → W1 Gantry</td>
+                  <td>RECEIVE</td>
+                  <td>RECEIVED</td>
+                  <td>Movement completion</td>
+                  <td>Origin EXIT; destination ENTRY; 900 s timeout.</td>
+                </tr>
+                <tr>
+                  <td>Storage movement: R1 → Warehouse 2</td>
+                  <td>Movement</td>
+                  <td>R1 Dispatch Gantry → W2 Gantry</td>
+                  <td>RECEIVE</td>
+                  <td>RECEIVED</td>
+                  <td>Movement completion</td>
+                  <td>Origin EXIT; destination ENTRY; 900 s timeout.</td>
+                </tr>
+                <tr>
+                  <td>Warehouse 1 → R1 dispatch staging</td>
+                  <td>Movement</td>
+                  <td>W1 Gantry → R1 Dispatch Gantry</td>
+                  <td>DISPATCH</td>
+                  <td>IN_STORAGE</td>
+                  <td>Movement completion</td>
+                  <td>Shipment required; EXIT → ENTRY; 900 s.</td>
+                </tr>
+                <tr>
+                  <td>Warehouse 2 → R1 dispatch staging</td>
+                  <td>Movement</td>
+                  <td>W2 Gantry → R1 Dispatch Gantry</td>
+                  <td>DISPATCH</td>
+                  <td>IN_STORAGE</td>
+                  <td>Movement completion</td>
+                  <td>Shipment required; EXIT → ENTRY; 900 s.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout" id="approved-movement-scope-note">
+            <strong>Approved movement scope</strong> The documented default
+            movement rules cover the currently approved Storage and Dispatch
+            flows. Other movement patterns are outside the approved operating
+            scope of this manual unless they are separately validated and
+            released.
+          </div>
+          <figure class="figure">
+            <img
+              alt="RFID Rules — default rules"
+              loading="lazy"
+              src="../assets/images/ui/rfid-rules-list.jpg"
+            />
+            <figcaption>RFID Rules — default rules</figcaption>
+          </figure>
+          <h2>Create a Processing rule</h2>
+          <div class="callout">
+            <strong>Create a new Processing Rule when:</strong>
+            a new approved Device/application operation must directly update
+            Asset status/location/rack and the existing Processing Rules do not
+            already provide that behavior.
+          </div>
+
+          <ol class="steps">
+            <li>
+              Select <b>RFID Rules → New</b> and choose <b>Processing</b>.
+            </li>
+            <li>
+              Give the rule a clear, unique name and enable it only when ready.
+            </li>
+            <li>Select the trusted <b>Source Device(s)</b>.</li>
+            <li>Choose <b>Target Asset Status</b> and <b>Operation</b>.</li>
+            <li>Select the allowed <b>Current Asset Statuses</b>.</li>
+            <li>
+              Enable <b>Require Shipment ID</b> and/or
+              <b>Require Rack ID</b> only when the workflow truly needs them.
+            </li>
+            <li>
+              Choose whether scanned Location/Rack should be assigned or Rack
+              should be cleared.
+            </li>
+            <li>Save and test with one known Asset before broad use.</li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Create a Processing RFID Rule"
+              loading="lazy"
+              src="../assets/images/ui/rfid-processing-new.jpg"
+            />
+            <figcaption>Create a Processing RFID Rule</figcaption>
+          </figure>
+          <h2>Create a Movement rule</h2>
+          <div class="callout">
+            <strong>Create a new Movement Rule when:</strong>
+            the site introduces a separately approved source-to-destination
+            route or route behavior that is not already represented by an
+            enabled Movement Rule. Do not add unvalidated movement patterns.
+          </div>
+
+          <ol class="steps">
+            <li>Choose <b>Movement</b> as Rule Type.</li>
+            <li>Select source device(s) and one destination device.</li>
+            <li>
+              Select Origin Operation/Direction and Destination
+              Operation/Direction.
+            </li>
+            <li>Select eligible Asset statuses.</li>
+            <li>
+              Set movement timeout and alert grace. Prefer values consistent
+              with real travel time plus a safe margin.
+            </li>
+            <li>
+              Set Completion Status only when the route should explicitly set
+              one; otherwise keep the route's normal behavior.
+            </li>
+            <li>
+              Decide whether to assign destination Location and clear Rack on
+              completion.
+            </li>
+            <li>
+              Check for rule overlap: two enabled rules should not ambiguously
+              match the same event.
+            </li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Create a Movement RFID Rule"
+              loading="lazy"
+              src="../assets/images/ui/rfid-movement-new.jpg"
+            />
+            <figcaption>Create a Movement RFID Rule</figcaption>
+          </figure>
+          <h2>Default Alert rules</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rule</th>
+                  <th>Default</th>
+                  <th>Severity</th>
+                  <th>When it fires</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Movement invalid source</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    Asset enters workflow from wrong source / workflow not
+                    properly prepared.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement invalid destination</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    Pending movement completes at a device/location other than
+                    planned.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement invalid route</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    No enabled movement rule permits the observed
+                    source/destination flow.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement out of order</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>Destination is observed before required source event.</td>
+                </tr>
+                <tr>
+                  <td>Movement timeout</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>Destination not reached within timeout window.</td>
+                </tr>
+                <tr>
+                  <td>RFID tag owner conflict</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    Tag resolves to a different record type than expected.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement late completion</td>
+                  <td>Disabled</td>
+                  <td>Medium</td>
+                  <td>Optional alert when completion arrives after timeout.</td>
+                </tr>
+                <tr>
+                  <td>Unknown RFID tag</td>
+                  <td>Disabled</td>
+                  <td>Medium</td>
+                  <td>Optional alert for valid but unregistered EPC.</td>
+                </tr>
+                <tr>
+                  <td>Shipment tag count mismatch</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    Gantry does not observe every expected tagged Asset for
+                    applicable Shipment validation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shipment mismatch</td>
+                  <td>Enabled</td>
+                  <td>High</td>
+                  <td>
+                    Observed registered Asset belongs to another Shipment.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ambiguous shipment observation</td>
+                  <td>Enabled</td>
+                  <td>Medium</td>
+                  <td>
+                    Gantry window contains multiple Shipments or registered
+                    Assets without Shipment ID.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="Alert Rules — default configuration"
+              loading="lazy"
+              src="../assets/images/ui/alert-rules-list.jpg"
+            />
+            <figcaption>Alert Rules — default configuration</figcaption>
+          </figure>
+          <h2>Create a new Alert rule correctly</h2>
+          <div class="callout">
+            <strong>Create a new Alert Rule when:</strong>
+            users need a notification for a supported validation condition that
+            is not already covered. If only the severity or message of an
+            existing condition changes, update the existing Alert Rule instead.
+          </div>
+
+          <ol class="steps">
+            <li>Choose <b>Alert Rules → New</b>.</li>
+            <li>Enter a user-friendly Name and stable unique Rule Key.</li>
+            <li>
+              Select the correct <b>Event Type</b>: movement observation or
+              Gantry Shipment validation.
+            </li>
+            <li>
+              Select Alert Type / Movement Conditions (or Shipment validation
+              condition) that represents the condition you want to notify.
+            </li>
+            <li>Choose Severity based on operational impact.</li>
+            <li>
+              Write an Alert Title and Description that tells a user what
+              happened and what to check.
+            </li>
+            <li>Enable only after testing the condition.</li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Create a new Alert Rule"
+              loading="lazy"
+              src="../assets/images/ui/alert-rule-new.jpg"
+            />
+            <figcaption>Create a new Alert Rule</figcaption>
+          </figure>
+          <h2>Movement validation principles</h2>
+          <ul class="icon-list">
+            <li>
+              Source event starts/advances a planned movement; destination event
+              must match the planned route.
+            </li>
+            <li>Destination before source is out of order.</li>
+            <li>
+              Wrong source, destination or unconfigured route is rejected.
+            </li>
+            <li>
+              Repeated physical reads are suppressed within the configured read
+              window.
+            </li>
+            <li>
+              Redelivery of the same logical event is duplicate-safe and must
+              not repeat Asset updates.
+            </li>
+            <li>
+              One RFID/business event must resolve to one Shipment.
+              Mixed-Shipment events are rejected.
+            </li>
+            <li>
+              Multiple Shipment flows may proceed independently and interleave.
+            </li>
+          </ul>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

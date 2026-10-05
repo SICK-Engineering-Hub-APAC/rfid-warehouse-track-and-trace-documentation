@@ -1,0 +1,206 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      Access, Import/Export &amp; Logs · RFID Warehouse Track and Trace
+    </title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="administration.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            class="active"
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Access, Import/Export &amp; Logs</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Access, Import/Export &amp; Logs</h1>
+          <p class="lead">
+            Understand Admin/Viewer access and use import, export, profile and
+            diagnostic functions.
+          </p>
+          <h2>Admin vs Viewer access</h2>
+          <p>
+            The default web access model contains two account types: Admin and
+            Viewer.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Account type</th>
+                  <th>Typical behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin</td>
+                  <td>
+                    Full configuration and operational control where permitted,
+                    including master data, Settings, RFID rules, Alert rules,
+                    imports/exports, movement planning and monitoring.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Viewer</td>
+                  <td>
+                    Performs warehouse Storage and Dispatch operations, monitors
+                    operational pages such as Dashboard, Assets, Locations,
+                    Devices, Scan Histories, Asset Movements and Alerts without
+                    changing configuration.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Import, Export and operational records</h2>
+          <h3>Export History</h3>
+          <p>
+            Use Export History to review and download previous exports. For a
+            new export, select only the entity and fields needed for the task.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Export Data panel with entity and field selection"
+              loading="lazy"
+              src="../assets/images/ui/admin-export-data-panel.png"
+            />
+            <figcaption>
+              Export Data — choose the entity and only the fields required for
+              the export.
+            </figcaption>
+          </figure>
+          <h3>Import History</h3>
+          <p>
+            Use Import History to review previous CSV imports. Before importing
+            Assets, verify the template fields, Shipment values and RFID Tag
+            IDs, then review the import result.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Import Data panel with entity and CSV file selection"
+              loading="lazy"
+              src="../assets/images/ui/admin-import-data-panel.png"
+            />
+            <figcaption>
+              Import Data — choose the entity and upload the prepared CSV file.
+            </figcaption>
+          </figure>
+          <h3>Log Viewer</h3>
+          <p>
+            Log Viewer is for administrator diagnostics. Use search, level
+            filters and live streaming when investigating an application issue.
+            For normal operations, use Alerts, Scan Histories and Asset
+            Movements.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Administrator Log Viewer"
+              loading="lazy"
+              src="../assets/images/ui/admin-log-viewer-full.png"
+            />
+            <figcaption>
+              Log Viewer — use level filters, search and live streaming when
+              diagnosing application issues.
+            </figcaption>
+          </figure>
+          <h3>Profile and Preferences</h3>
+          <p>
+            My Account → Profile stores personal account information.
+            Preferences control language and date/time display only; they do not
+            change warehouse rules.
+          </p>
+          <figure class="figure">
+            <img
+              alt="My Account Profile page"
+              loading="lazy"
+              src="../assets/images/ui/admin-user-profile-full.png"
+            />
+            <figcaption>
+              My Account → Profile — personal account information.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="My Account Preferences page"
+              loading="lazy"
+              src="../assets/images/ui/admin-user-preferences-full.png"
+            />
+            <figcaption>
+              My Account → Preferences — personal appearance, language and
+              date/time display preferences.
+            </figcaption>
+          </figure>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

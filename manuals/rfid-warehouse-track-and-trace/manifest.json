@@ -1,0 +1,17 @@
+{
+  "slug": "rfid-warehouse-track-and-trace",
+  "title": "RFID Warehouse Track and Trace End-User Manual",
+  "description": "Operating and configuration guidance for warehouse Storage, Dispatch Checkout, RFID monitoring, asset movement planning, and system administration.",
+  "publicPath": "usage-manual",
+  "manualType": "End-user manual",
+  "latest": "v1.0.0",
+  "versions": [
+    {
+      "version": "v1.0.0",
+      "status": "Current",
+      "date": "",
+      "summary": "Screenshot-enhanced end-user manual.",
+      "compatibleAppVersions": ["v1.0.0"]
+    }
+  ]
+}

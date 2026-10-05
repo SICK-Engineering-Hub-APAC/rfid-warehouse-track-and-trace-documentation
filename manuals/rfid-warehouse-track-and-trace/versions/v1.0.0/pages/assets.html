@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Assets · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="assets.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a
+            class="active"
+            data-current="assets.html"
+            href="../pages/assets.html"
+            >Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Assets</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Assets</h1>
+          <p class="lead">
+            Create, review and maintain Asset master data, Shipment assignments
+            and RFID tags.
+          </p>
+          <h2>Manage Assets</h2>
+          <p>
+            Use Assets to find inventory by Tag ID, Serial Number, Shipment ID,
+            Material or Asset Status.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Assets list and filters"
+              loading="lazy"
+              src="../assets/images/ui/assets-list.jpg"
+            />
+            <figcaption>Assets list and filters</figcaption>
+          </figure>
+          <h3>Create one Asset</h3>
+          <ol class="steps">
+            <li>Select New.</li>
+            <li>
+              Choose or generate the RFID Tag ID. Turn on
+              <b>Print RFID tag</b> if a configured printer should print
+              immediately.
+            </li>
+            <li>
+              Assign an existing Shipment ID or choose the option that creates
+              the next Shipment ID.
+            </li>
+            <li>
+              Enter Material, Material Description, Quantity and Serial Number
+              as needed.
+            </li>
+            <li>
+              Leave system-managed status/location fields at their valid initial
+              state unless the UI explicitly allows a controlled choice.
+            </li>
+            <li>
+              Save, then attach the printed RFID label to the correct physical
+              Asset.
+            </li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="New Asset form"
+              loading="lazy"
+              src="../assets/images/ui/asset-new.jpg"
+            />
+            <figcaption>New Asset form</figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Print RFID Tag panel for an Asset"
+              loading="lazy"
+              src="../assets/images/ui/asset-print-rfid-dialog.png"
+            />
+            <figcaption>
+              Print RFID Tag — select the configured printer and verify the RFID
+              Tag ID before printing/encoding.
+            </figcaption>
+          </figure>
+          <h3>Create Assets by Shipment</h3>
+          <p>
+            Use Create by Shipment when several Assets share the same Shipment
+            ID. Add one row per Asset, enter its material/quantity/serial data,
+            and generate or assign its RFID Tag ID.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Create Assets by Shipment form showing Shipment Assignment, RFID label printer and the first Asset row"
+              loading="lazy"
+              src="../assets/images/ui/assets-create-by-shipment-full-1.png"
+            />
+            <figcaption>
+              Create Assets by Shipment — select or generate the Shipment ID,
+              choose the RFID label printer when required, and enter the first
+              Asset row.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Create Assets by Shipment form showing multiple Asset rows in the same Shipment batch"
+              loading="lazy"
+              src="../assets/images/ui/assets-create-by-shipment-full-2.png"
+            />
+            <figcaption>
+              Create Assets by Shipment — additional Asset rows share the
+              selected Shipment ID; each row can contain its own material,
+              quantity, serial number, description and RFID-tag options.
+            </figcaption>
+          </figure>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

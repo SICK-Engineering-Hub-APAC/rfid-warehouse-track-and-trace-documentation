@@ -1,0 +1,308 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Dispatch Checkout · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="dispatch.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a
+            class="active"
+            data-current="dispatch.html"
+            href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Dispatch Checkout</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Dispatch Checkout</h1>
+          <p class="lead">
+            Use the Dispatch app to scan and check out eligible Assets for one
+            Shipment at a time.
+          </p>
+          <h2>Configure Dispatch Settings</h2>
+          <p>
+            Open Settings, authenticate with the site Settings account, and
+            configure the workstation as shown below.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Fields / purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Account Security</td>
+                  <td>Change the local Settings password.</td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td>
+                    Select the Receiving/Dispatch Location used by this
+                    workstation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>MQTT Integration</td>
+                  <td>
+                    Broker URL, topic prefix, observation topic and request
+                    timeout.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Server Configuration</td>
+                  <td>
+                    Central Admin endpoint/port, health API path, device
+                    identifier and technical credential/token.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Reader Configuration</td>
+                  <td>
+                    Connected RFID reader host/IP, TCP port, receive/transmit
+                    framing, start/stop commands, tag separator, no-read
+                    response, reconnect interval and reader-status freshness
+                    window.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Use the RFID reader address assigned to this workstation in the
+            approved IP plan. Do not copy another workstation's reader address.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Dispatch Settings"
+              loading="lazy"
+              src="../assets/images/ui/dispatch-settings.jpg"
+            />
+            <figcaption>Dispatch Settings</figcaption>
+          </figure>
+          <h2>Before starting Checkout</h2>
+          <ul class="icon-list">
+            <li>Admin system connected.</li>
+            <li>MQTT broker connected.</li>
+            <li>RFID reader is Online and its status is fresh.</li>
+            <li>Correct Dispatch Location selected.</li>
+            <li>Selected Shipment has eligible Assets.</li>
+          </ul>
+          <figure class="figure">
+            <img
+              alt="Dispatch workstation — connections online"
+              loading="lazy"
+              src="../assets/images/ui/dispatch-online.jpg"
+            />
+            <figcaption>
+              Dispatch workstation — connections online · Click image to
+              enlarge.
+            </figcaption>
+          </figure>
+          <h2>Checkout procedure</h2>
+          <ol class="steps">
+            <li>Start Checkout and select or enter the Shipment ID.</li>
+            <li>The app loads eligible Assets for the selected Shipment.</li>
+            <li>
+              Start RFID scanning. Keep only the Assets intended for this
+              Checkout inside the reader's detection zone.
+            </li>
+            <li>
+              Review Expected/Detected Assets and resolve any blocking
+              exception.
+            </li>
+            <li>
+              When scanned Assets are valid, choose <b>Confirm Checkout</b>.
+            </li>
+            <li>Confirm the submission dialog.</li>
+            <li>
+              Wait for the central result. Success changes only the Assets in
+              this Checkout to READY_FOR_DISPATCH.
+            </li>
+            <li>
+              Remove the checked-out Assets and prepare the next partial
+              Checkout if more Assets remain.
+            </li>
+          </ol>
+          <div class="two">
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Active Checkout session"
+                  loading="lazy"
+                  src="../assets/images/ui/dispatch-session.jpg"
+                />
+                <figcaption>Active Checkout session</figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Valid detected Asset — Confirm Checkout enabled"
+                  loading="lazy"
+                  src="../assets/images/ui/dispatch-ready.jpg"
+                />
+                <figcaption>
+                  Valid detected Asset — Confirm Checkout enabled · Click image
+                  to enlarge.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <h2>Partial Checkout is supported</h2>
+          <div class="callout success">
+            <b>Example:</b> Shipment A contains A1, A2, A3 and A4. A Checkout
+            containing only A1 and A3 is valid when both are eligible. A2 and A4
+            remain unchanged and can be checked out later.
+          </div>
+          <ul class="icon-list">
+            <li>
+              Unscanned same-Shipment Assets are not errors for partial
+              Checkout.
+            </li>
+            <li>
+              A scanned Asset from another Shipment blocks the current Checkout.
+            </li>
+            <li>
+              Unknown/ineligible/already-processed Assets block the transaction.
+            </li>
+            <li>
+              Retrying the same logical Checkout is duplicate-safe and must not
+              update an Asset twice.
+            </li>
+          </ul>
+          <h2>Result states</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Central result</th>
+                  <th>Dispatch behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>OK</td>
+                  <td>Accepted; complete the local session.</td>
+                </tr>
+                <tr>
+                  <td>DUPLICATE (same logical transaction)</td>
+                  <td>
+                    Safe idempotent success; do not duplicate Asset state
+                    changes.
+                  </td>
+                </tr>
+                <tr>
+                  <td>FAILED</td>
+                  <td>
+                    Do not consider the Checkout complete; keep/recover the
+                    session for correction or retry.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Unavailable / timeout</td>
+                  <td>Do not assume success; use recovery/status checks.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="two">
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Rejected Checkout — review the blocking reason"
+                  loading="lazy"
+                  src="../assets/images/ui/dispatch-rejected.jpg"
+                />
+                <figcaption>
+                  Rejected Checkout — review the blocking reason · Click image
+                  to enlarge.
+                </figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Successful Checkout Completed"
+                  loading="lazy"
+                  src="../assets/images/ui/dispatch-success.jpg"
+                />
+                <figcaption>Successful Checkout Completed</figcaption>
+              </figure>
+            </div>
+          </div>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

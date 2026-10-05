@@ -1,0 +1,513 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      System, Devices &amp; Network · RFID Warehouse Track and Trace
+    </title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="system.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a
+            class="active"
+            data-current="system.html"
+            href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">System, Devices &amp; Network</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>System, Devices &amp; Network</h1>
+          <p class="lead">
+            Understand the system architecture, integrated devices and approved
+            network configuration.
+          </p>
+          <h2>System architecture</h2>
+          <p>
+            The central Asset Tracking System stores master data, Asset state,
+            Movements, Scan Histories, Alerts and Settings. Edge applications
+            collect RFID/device data and run warehouse workflows.
+          </p>
+          <div class="grid2">
+            <div class="card">
+              <h3>Admin Web / Asset Tracking System</h3>
+              <p>
+                Central configuration and monitoring for Assets, Locations,
+                Racks, Devices, RFID rules, Alert rules, Movements, Scan
+                Histories, Alerts and Settings.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Handheld RFID Application</h3>
+              <p>
+                Supports Rack/Asset identification and Rack Stock Take
+                workflows, including Shipment-based validation and
+                offline/recovery behavior.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Dispatch RFID Scan Application</h3>
+              <p>
+                Supports Shipment-based partial Checkout using the RFID reader
+                assigned to the Dispatch workstation.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Gantry RFID Scan Application</h3>
+              <p>
+                Combines RFID observations with passage/direction detection and
+                sends observation data to the central system for movement
+                processing.
+              </p>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>Default web access</strong> The default account types are
+            Admin and Viewer.
+          </div>
+          <h2>Device architecture</h2>
+          <figure class="figure">
+            <img
+              alt="Physical device and network architecture"
+              loading="lazy"
+              src="../assets/images/architecture/hardware.png"
+            />
+            <figcaption>Physical device and network architecture</figcaption>
+          </figure>
+          <h3>Integrated devices and purposes — reference deployment</h3>
+          <div class="callout">
+            The device models, addresses, and quantities below reflect the
+            supplied reference device architecture and IP plan. They are a
+            deployment baseline, not a fixed system limit. Additional Gantries,
+            RFID readers, direction sensors, controllers, handhelds, printers,
+            workstations, and supporting network devices can be added where
+            required, provided each is configured with the correct logical
+            identity, Location, network settings, and applicable rules.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Device / component</th>
+                  <th>Purpose</th>
+                  <th>Site network address</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin / Receiving IPC</td>
+                  <td>
+                    Hosts central Admin functions and connects to local
+                    Receiving devices.
+                  </td>
+                  <td>192.168.0.2 (wired)<br />192.168.1.2 (backbone)</td>
+                  <td>
+                    Worksheet calls this “Third-party PC 1”; verify physical
+                    label before assignment.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dispatch IPC</td>
+                  <td>Runs Checkout Webpage and interfaces with RFU610.</td>
+                  <td>192.168.0.50<br />192.168.1.50</td>
+                  <td>
+                    Worksheet calls this “Third-party PC 2”; verify label.
+                  </td>
+                </tr>
+                <tr>
+                  <td>SATO CL4NX Plus 230 dpi</td>
+                  <td>Prints/encodes Asset RFID labels.</td>
+                  <td>192.168.0.3</td>
+                  <td>Receiving area.</td>
+                </tr>
+                <tr>
+                  <td>RFU610</td>
+                  <td>Fixed RFID reader for Dispatch Checkout.</td>
+                  <td>192.168.0.51</td>
+                  <td>Connected to Dispatch workstation network.</td>
+                </tr>
+                <tr>
+                  <td>TDC-X Gantry 1</td>
+                  <td>Runs Gantry Node-RED logic for local RFU/LiDAR pair.</td>
+                  <td>192.168.0.100<br />192.168.1.100</td>
+                  <td>Dual interface.</td>
+                </tr>
+                <tr>
+                  <td>RFU630 Gantry 1</td>
+                  <td>Reads UHF Asset tags.</td>
+                  <td>192.168.0.101</td>
+                  <td>Local Gantry 1 LAN.</td>
+                </tr>
+                <tr>
+                  <td>picoScan150 Gantry 1</td>
+                  <td>Detects passage/direction.</td>
+                  <td>192.168.0.102</td>
+                  <td>Local Gantry 1 LAN.</td>
+                </tr>
+                <tr>
+                  <td>TDC-X Gantry 2</td>
+                  <td>Runs Gantry Node-RED logic.</td>
+                  <td>192.168.0.100<br />192.168.1.110</td>
+                  <td>Dual interface.</td>
+                </tr>
+                <tr>
+                  <td>RFU630 Gantry 2</td>
+                  <td>Reads UHF Asset tags.</td>
+                  <td>192.168.0.111</td>
+                  <td>Local Gantry 2 LAN.</td>
+                </tr>
+                <tr>
+                  <td>picoScan150 Gantry 2</td>
+                  <td>Detects passage/direction.</td>
+                  <td>192.168.0.112</td>
+                  <td>Local Gantry 2 LAN.</td>
+                </tr>
+                <tr>
+                  <td>TDC-X Gantry 3</td>
+                  <td>Runs Gantry Node-RED logic.</td>
+                  <td>192.168.0.100<br />192.168.1.120</td>
+                  <td>Dual interface.</td>
+                </tr>
+                <tr>
+                  <td>RFU630 Gantry 3</td>
+                  <td>Reads UHF Asset tags.</td>
+                  <td>192.168.0.121</td>
+                  <td>Local Gantry 3 LAN.</td>
+                </tr>
+                <tr>
+                  <td>picoScan150 Gantry 3</td>
+                  <td>Detects passage/direction.</td>
+                  <td>192.168.0.122</td>
+                  <td>Local Gantry 3 LAN.</td>
+                </tr>
+                <tr>
+                  <td>Internal router</td>
+                  <td>Wi-Fi/backbone connectivity.</td>
+                  <td>192.168.1.1</td>
+                  <td>Backbone subnet 192.168.1.0/24.</td>
+                </tr>
+                <tr>
+                  <td>CipherLab handheld</td>
+                  <td>Mobile Rack/Asset scanning.</td>
+                  <td>Wi-Fi / DHCP or site-assigned</td>
+                  <td>Configure Device ID and Location in app Settings.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>IP address assignment</h2>
+          <p>
+            Use the approved site IP plan. Configure each fixed device with its
+            assigned address, then verify connectivity before configuring the
+            application.
+          </p>
+          <div class="callout good">
+            <strong>IP configuration tools</strong> Use SICK SOPAS ET software
+            to configure IP addresses for supported SICK network devices.
+            Exception: configure the TDC-X controller and the PicoScan LiDAR
+            device by opening the device's connection webpage directly in a web
+            browser and adjusting the IP settings there. For third-party
+            equipment such as workstations, network infrastructure, or the RFID
+            label printer, use the configuration interface provided for that
+            device.
+          </div>
+          <div class="callout warn">
+            <b>Important network design note:</b> all three TDC-X local Ethernet
+            interfaces are planned as <code>192.168.0.100</code>. This is safe
+            only when each Gantry local Ethernet segment is isolated. Do not
+            bridge those local segments together without changing the duplicate
+            addresses.
+          </div>
+          <h3>Recommended assignment sequence</h3>
+          <ol class="steps">
+            <li>
+              Label the physical unit and confirm which installed subsystem,
+              Location, or workstation it belongs to.
+            </li>
+            <li>
+              Connect the device to the intended local network segment before
+              changing its address.
+            </li>
+            <li>
+              For supported SICK network devices, use SOPAS ET to set the
+              approved IP address and subnet.
+            </li>
+            <li>
+              For TDC-X and PicoScan LiDAR, open the device webpage and set the
+              approved IP address/subnet there.
+            </li>
+            <li>
+              For third-party equipment, use the device's own network
+              configuration interface and apply the approved site address.
+            </li>
+            <li>
+              Confirm that no duplicate IP address exists on the same physical
+              network segment.
+            </li>
+            <li>
+              Ping or otherwise test the device from its controlling
+              workstation/controller.
+            </li>
+            <li>
+              Create or update the matching logical Device in Admin Web with the
+              correct Location, type and identifiers.
+            </li>
+            <li>
+              Configure the corresponding edge application with the same Device
+              identity and Location.
+            </li>
+            <li>
+              Run the application's connection test and verify Device status in
+              Admin Web.
+            </li>
+          </ol>
+          <h2>Per-device configuration checklist</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Unit type</th>
+                  <th>Configure on the unit/application</th>
+                  <th>Also configure in Admin Web</th>
+                  <th>Verify</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Central / Admin workstation</td>
+                  <td>
+                    Configure the workstation network settings using the
+                    operating system/network interface, then verify browser
+                    access to Admin Web and connectivity to required central
+                    services.
+                  </td>
+                  <td>
+                    Create logical workstation/device records only where
+                    required by the deployment; all operational RFID/printer
+                    identities must be represented correctly.
+                  </td>
+                  <td>
+                    Admin login, Dashboard and connectivity to required site
+                    devices/services.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dispatch workstation</td>
+                  <td>
+                    Configure workstation network settings using the operating
+                    system/network interface; then configure the Checkout
+                    application, assigned RFID reader host/port, central server
+                    and MQTT settings.
+                  </td>
+                  <td>
+                    Matching Dispatch/Checkout device identity and Location.
+                  </td>
+                  <td>
+                    Central service, MQTT and RFID reader indicators are healthy
+                    before Checkout.
+                  </td>
+                </tr>
+                <tr>
+                  <td>RFID label printer</td>
+                  <td>
+                    Configure the approved network address using the printer's
+                    own configuration interface, then verify printer readiness,
+                    media/tag setup and RFID calibration.
+                  </td>
+                  <td>
+                    Printer Device record with correct network/model metadata.
+                  </td>
+                  <td>
+                    Print a test label and verify the EPC matches the Asset Tag
+                    ID.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dispatch RFID reader</td>
+                  <td>
+                    Configure the approved IP address/subnet in SICK SOPAS ET,
+                    then configure the reader TCP behavior required by the
+                    Dispatch application.
+                  </td>
+                  <td>
+                    Associate the reader with the correct Dispatch
+                    workstation/device identity according to the deployment
+                    design.
+                  </td>
+                  <td>
+                    Reader status is Online and a known tag can be detected.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gantry controller</td>
+                  <td>
+                    Configure the TDC-X IP address/subnet from its connection
+                    webpage in a web browser. Then configure the local device
+                    network, backbone connection where applicable, and the
+                    deployed Gantry application/flow.
+                  </td>
+                  <td>Matching Gantry Device ID and Location.</td>
+                  <td>
+                    Local RFID/direction devices are reachable and the
+                    controller can reach central messaging/services.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gantry RFID reader</td>
+                  <td>
+                    Configure the approved local IP address/subnet in SICK SOPAS
+                    ET, then configure RFID/read-zone settings appropriate for
+                    the installed Gantry.
+                  </td>
+                  <td>
+                    Represent through the Gantry application/device model
+                    according to site design.
+                  </td>
+                  <td>
+                    A known EPC is captured correctly during a controlled
+                    passage.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gantry direction sensor</td>
+                  <td>
+                    For the PicoScan LiDAR device, configure the IP
+                    address/subnet from its connection webpage in a web browser.
+                    Then configure the required detection fields/zones for the
+                    physical passage.
+                  </td>
+                  <td>
+                    Direction is reported through the Gantry application/device
+                    identity.
+                  </td>
+                  <td>
+                    Controlled passages produce the expected ENTRY/EXIT
+                    direction.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Handheld RFID terminal</td>
+                  <td>
+                    Wi-Fi, vendor RFID settings, application Device ID,
+                    Location, API, MQTT, sync/cache and access settings.
+                  </td>
+                  <td>
+                    Handheld Scanner Device record at the matching operational
+                    Location.
+                  </td>
+                  <td>
+                    API/MQTT/RFID tests pass; Rack QR and known Asset scans
+                    resolve correctly.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Router / switches / network infrastructure</td>
+                  <td>
+                    Use the network equipment's own management interface to
+                    apply the approved subnet, routing, VLAN, port and wireless
+                    settings from the commissioning network plan.
+                  </td>
+                  <td>
+                    No normal business Device record is required unless
+                    explicitly modeled by the deployment.
+                  </td>
+                  <td>
+                    All applications can reach the services and devices required
+                    for their workflow.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Gantry application settings</h3>
+          <p>
+            For each Gantry, configure its Device ID, Location ID, local RFID
+            reader, direction sensor and central MQTT broker. Use the approved
+            event topic, QoS and retain settings.
+          </p>
+          <h2>Architecture notes to verify on site</h2>
+          <ul>
+            <li>
+              Confirm installed Gantry controllers against the approved hardware
+              drawing and IP plan; update both records after expansion or
+              relocation.
+            </li>
+            <li>
+              Do not copy device passwords from commissioning spreadsheets into
+              general user documentation; keep them controlled by the site
+              administrator.
+            </li>
+          </ul>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

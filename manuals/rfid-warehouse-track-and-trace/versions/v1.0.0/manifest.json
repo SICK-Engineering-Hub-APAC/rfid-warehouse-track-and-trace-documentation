@@ -1,0 +1,34 @@
+{
+  "system": "RFID Warehouse Track and Trace",
+  "systemVersion": "1.0.0",
+  "documentationVersion": "1.0.0",
+  "company": "SICK",
+  "pages": [
+    "index.html",
+    "pages/end-to-end.html",
+    "pages/dashboard.html",
+    "pages/movements.html",
+    "pages/monitoring.html",
+    "pages/handheld.html",
+    "pages/dispatch.html",
+    "pages/assets.html",
+    "pages/locations.html",
+    "pages/devices.html",
+    "pages/rules.html",
+    "pages/settings.html",
+    "pages/administration.html",
+    "pages/system.html",
+    "pages/reference.html",
+    "pages/troubleshooting.html"
+  ],
+  "revisionNotes": "Reorganized into task-oriented sections; renamed inbound movement to Storage movement; clarified Dispatch Warehouse/Rack context; documented editing Pending Asset Movements; removed RFA630-101 antenna reference.",
+  "editorialReview": {
+    "status": "completed",
+    "focus": [
+      "compact wording",
+      "plain-language end-user guidance",
+      "consistent page structure",
+      "consistent visual rhythm"
+    ]
+  }
+}

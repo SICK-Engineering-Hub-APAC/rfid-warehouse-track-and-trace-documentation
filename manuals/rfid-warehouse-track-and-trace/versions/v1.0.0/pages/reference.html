@@ -1,0 +1,284 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      Statuses &amp; Default Settings · RFID Warehouse Track and Trace
+    </title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="reference.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a
+            class="active"
+            data-current="reference.html"
+            href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Statuses &amp; Default Settings</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Statuses &amp; Default Settings</h1>
+          <p class="lead">
+            Quick reference for Asset status, Movement status and default system
+            settings.
+          </p>
+          <h2>Asset statuses</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="status-pill status-received">RECEIVED</span>
+                  </td>
+                  <td>Registered/received and not yet stored.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="status-pill status-storage">IN_STORAGE</span>
+                  </td>
+                  <td>
+                    Stored in a Warehouse/Rack and eligible for warehouse
+                    movement or Dispatch preparation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="status-pill status-ready"
+                      >READY_FOR_DISPATCH</span
+                    >
+                  </td>
+                  <td>
+                    Successfully checked out/staged and waiting for final R1
+                    exit.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="status-pill status-dispatched"
+                      >DISPATCHED</span
+                    >
+                  </td>
+                  <td>Final outbound dispatch completed.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Asset Movement statuses</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PENDING</td>
+                  <td>
+                    Movement request exists and is waiting for the required RFID
+                    events.
+                  </td>
+                </tr>
+                <tr>
+                  <td>COMPLETED</td>
+                  <td>
+                    Expected source/destination sequence completed successfully.
+                  </td>
+                </tr>
+                <tr>
+                  <td>TIMED_OUT</td>
+                  <td>
+                    Destination confirmation did not arrive before timeout +
+                    grace processing.
+                  </td>
+                </tr>
+                <tr>
+                  <td>FAILED</td>
+                  <td>
+                    Movement could not be accepted because validation failed.
+                  </td>
+                </tr>
+                <tr>
+                  <td>CANCELLED</td>
+                  <td>
+                    Movement was intentionally cancelled/removed from active
+                    processing.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Default system settings</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Source default</th>
+                  <th>Area</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Language</td>
+                  <td>English</td>
+                  <td>General</td>
+                </tr>
+                <tr>
+                  <td>Time zone</td>
+                  <td>Asia/Singapore</td>
+                  <td>General</td>
+                </tr>
+                <tr>
+                  <td>Date format</td>
+                  <td>YYYY-MM-DD</td>
+                  <td>General</td>
+                </tr>
+                <tr>
+                  <td>Time format</td>
+                  <td>HH:mm:ss</td>
+                  <td>General</td>
+                </tr>
+                <tr>
+                  <td>Generated RFID ID length</td>
+                  <td>24</td>
+                  <td>RFID Tag</td>
+                </tr>
+                <tr>
+                  <td>Movement fallback timeout</td>
+                  <td>3600 s (1 hour)</td>
+                  <td>Movement Validation</td>
+                </tr>
+                <tr>
+                  <td>Physical RFID read window</td>
+                  <td>10 s</td>
+                  <td>Movement Validation</td>
+                </tr>
+                <tr>
+                  <td>Alert grace fallback</td>
+                  <td>60 s</td>
+                  <td>Movement Validation</td>
+                </tr>
+                <tr>
+                  <td>Gantry event wait window</td>
+                  <td>3 s</td>
+                  <td>Movement Validation</td>
+                </tr>
+                <tr>
+                  <td>RFID event idempotency retention</td>
+                  <td>7 days</td>
+                  <td>Data retention</td>
+                </tr>
+                <tr>
+                  <td>Scan History retention</td>
+                  <td>730 days (2 years)</td>
+                  <td>Data retention</td>
+                </tr>
+                <tr>
+                  <td>Resolved Alert retention</td>
+                  <td>365 days (1 year)</td>
+                  <td>Data retention</td>
+                </tr>
+                <tr>
+                  <td>Asset Movement retention</td>
+                  <td>365 days (1 year)</td>
+                  <td>Data retention</td>
+                </tr>
+                <tr>
+                  <td>Import / Export history retention</td>
+                  <td>90 days (3 months)</td>
+                  <td>Data retention</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="Admin Settings — Movement Validation example"
+              loading="lazy"
+              src="../assets/images/ui/settings-movement.jpg"
+            />
+            <figcaption>
+              Admin Settings — Movement Validation example · Click image to
+              enlarge.
+            </figcaption>
+          </figure>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

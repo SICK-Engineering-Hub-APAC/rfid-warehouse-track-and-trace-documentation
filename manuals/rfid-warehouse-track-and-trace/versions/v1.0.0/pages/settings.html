@@ -1,0 +1,467 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>System Settings · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="settings.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a
+            class="active"
+            data-current="settings.html"
+            href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">System Settings</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>System Settings</h1>
+          <p class="lead">
+            Configure system-wide display, RFID Tag ID, movement timing,
+            retention and password-policy settings.
+          </p>
+          <div class="callout">
+            <strong>Admin configuration page.</strong>
+            These settings affect system-wide behavior. Viewer users monitor
+            operational information but do not change this configuration. Save
+            one section at a time and verify the result before moving to the
+            next section.
+          </div>
+          <div class="toc">
+            <b>On this page</b>
+            <a href="#settings-overview">How the Settings page works</a>
+            <a href="#general-settings">General</a>
+            <a href="#rfid-tag-settings">RFID Tag</a>
+            <a href="#movement-settings">Movement Validation</a>
+            <a href="#retention-settings">Data Retention</a>
+            <a href="#settings-change-checklist">Before changing Settings</a>
+          </div>
+          <h2 id="settings-overview">Using the Settings page</h2>
+          <p>
+            Admin Web exposes five Settings sections: General, RFID Tag,
+            Movement Validation, Data Retention and Security. Infrastructure
+            settings that are not shown here are not normal end-user controls.
+          </p>
+          <ul class="icon-list">
+            <li>Choose a section from the left side of the Settings panel.</li>
+            <li>
+              Change only the values required by the approved site
+              configuration.
+            </li>
+            <li>Select <b>Save</b> in that section to apply the changes.</li>
+            <li>
+              If you try to switch sections with unsaved edits, the application
+              can ask whether to save, discard or cancel the change.
+            </li>
+            <li>
+              After changing movement or retention values, verify the related
+              workflow with a controlled test.
+            </li>
+          </ul>
+          <h2 id="general-settings">General</h2>
+          <p>
+            General controls the default language and date/time display. It does
+            not change RFID movement logic.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                  <th>Default</th>
+                  <th>Guidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Language</b></td>
+                  <td>Default application-interface language.</td>
+                  <td>English</td>
+                  <td>
+                    Choose the site default. A user's personal preferences may
+                    affect how that individual sees the interface.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Timezone</b></td>
+                  <td>
+                    Default timezone used when dates/times are displayed by the
+                    system.
+                  </td>
+                  <td>Asia/Singapore</td>
+                  <td>
+                    Set this to the operating site's timezone so movement, scan
+                    and alert times are easy to interpret.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Date Format</b></td>
+                  <td>Controls how calendar dates are shown.</td>
+                  <td>YYYY-MM-DD</td>
+                  <td>
+                    Choose one consistent site format to avoid ambiguous dates.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Time Format</b></td>
+                  <td>Controls how time-of-day values are shown.</td>
+                  <td>HH:mm:ss</td>
+                  <td>
+                    Keep a consistent format across the site, especially when
+                    comparing Scan Histories and Alerts.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="General Settings"
+              loading="lazy"
+              src="../assets/images/ui/settings-general-full.png"
+            />
+            <figcaption>
+              General Settings — language, timezone, date format and time
+              format.
+            </figcaption>
+          </figure>
+          <h2 id="rfid-tag-settings">RFID Tag</h2>
+          <p>
+            RFID Tag controls the length of newly generated RFID Tag IDs.
+            Existing Asset Tag IDs are not changed.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                  <th>Default</th>
+                  <th>Guidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Generated Tag ID Length</b></td>
+                  <td>
+                    Number of hexadecimal characters generated for a new RFID
+                    Tag ID.
+                  </td>
+                  <td>24 characters</td>
+                  <td>
+                    Presets are 16, 24 and 32 characters. A Custom value is also
+                    available and must be at least 8 characters. Keep one
+                    approved length for the deployment unless the RFID/tagging
+                    design explicitly requires a change.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>Changing this setting affects newly generated IDs.</strong>
+            Verify that the selected length is compatible with the RFID tag,
+            printer configuration and any external system that consumes the
+            EPC/Tag ID.
+          </div>
+          <figure class="figure">
+            <img
+              alt="RFID Tag Settings"
+              loading="lazy"
+              src="../assets/images/ui/settings-rfid-tag-full.png"
+            />
+            <figcaption>
+              RFID Tag Settings — select the generated Tag ID length or a
+              supported custom length.
+            </figcaption>
+          </figure>
+          <h2 id="movement-settings">Movement Validation</h2>
+          <p>
+            Movement Validation controls timing for RFID grouping, movement
+            timeout, Alert grace and Gantry Shipment validation.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>What it controls</th>
+                  <th>Default</th>
+                  <th>Effect of changing it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Movement Timeout (seconds)</b></td>
+                  <td>
+                    Maximum allowed time for an expected movement to complete
+                    before it is treated as stale/timed out.
+                  </td>
+                  <td>3600 seconds (1 hour)</td>
+                  <td>
+                    A shorter value detects incomplete movements sooner; a
+                    longer value gives more time for physical travel. A matching
+                    Movement RFID Rule can define its own timeout and override
+                    this global fallback for that movement.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>RFID Read Window (seconds)</b></td>
+                  <td>
+                    Window used to group RFID reads for movement validation and
+                    physical duplicate suppression.
+                  </td>
+                  <td>10 seconds</td>
+                  <td>
+                    Too short can treat repeated observations as separate
+                    activity; too long can suppress legitimate repeat reads.
+                    Change only after testing with the actual reader/Gantry
+                    timing.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Alert Grace Period (seconds)</b></td>
+                  <td>
+                    Additional delay before unresolved movement-validation
+                    failures become actionable alerts.
+                  </td>
+                  <td>1 second</td>
+                  <td>
+                    Lower values surface alerts sooner; higher values allow more
+                    time for a valid follow-up observation. Individual Movement
+                    RFID Rules can also define their own alert-grace value.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Gantry Event Wait Window (seconds)</b></td>
+                  <td>
+                    Quiet-time window used to collect RFID observations
+                    belonging to one Gantry pass before Shipment tag-count
+                    validation starts.
+                  </td>
+                  <td>3 seconds</td>
+                  <td>
+                    Too short can validate before all tags are received; too
+                    long delays the result. Tune only after observing real
+                    Gantry timing.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="Movement Validation Settings"
+              loading="lazy"
+              src="../assets/images/ui/settings-movement-full.png"
+            />
+            <figcaption>
+              Movement Validation Settings — timeout, RFID read window, alert
+              grace period and Gantry event wait window.
+            </figcaption>
+          </figure>
+          <h2 id="retention-settings">Data Retention</h2>
+          <p>
+            Data Retention controls automatic cleanup. Longer retention keeps
+            more history but uses more database storage; shorter retention
+            removes old records sooner.
+          </p>
+          <h3>Event Processing</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>RFID Event Idempotency Retention (seconds)</b></td>
+                  <td>
+                    Keeps processed RFID event IDs long enough for the system to
+                    recognize redelivery of the same logical event and suppress
+                    duplicate event processing.
+                  </td>
+                  <td>604800 seconds (7 days)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Warehouse Records</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Scan History Retention (days)</b></td>
+                  <td>
+                    Retention period for non-alert Scan History records before
+                    automatic cleanup.
+                  </td>
+                  <td>730 days (2 years)</td>
+                </tr>
+                <tr>
+                  <td><b>Resolved Alert Retention (days)</b></td>
+                  <td>Retention period for resolved RFID Alert records.</td>
+                  <td>365 days (1 year)</td>
+                </tr>
+                <tr>
+                  <td><b>Asset Movement Retention (days)</b></td>
+                  <td>
+                    Retention period for completed/terminal Asset Movement
+                    records.
+                  </td>
+                  <td>365 days (1 year)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Import and Export Logs</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Import Log Retention (days)</b></td>
+                  <td>Retention period for completed import execution logs.</td>
+                  <td>90 days (3 months)</td>
+                </tr>
+                <tr>
+                  <td><b>Export Log Retention (days)</b></td>
+                  <td>Retention period for completed export execution logs.</td>
+                  <td>90 days (3 months)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>Retention changes are not just visual filters.</strong>
+            They control automatic cleanup of stored records. Before reducing a
+            period, confirm whether the site requires those records for
+            traceability, reporting or investigation.
+          </div>
+          <figure class="figure">
+            <img
+              alt="Data Retention Settings"
+              loading="lazy"
+              src="../assets/images/ui/settings-retention-full.png"
+            />
+            <figcaption>
+              Data Retention Settings — event-processing, warehouse-record and
+              import/export-log retention.
+            </figcaption>
+          </figure>
+          <h2 id="settings-change-checklist">Before you change settings</h2>
+          <ol class="steps">
+            <li>Record the current approved value before editing.</li>
+            <li>
+              Confirm the reason for the change and which workflow it affects.
+            </li>
+            <li>Change only one related group of settings at a time.</li>
+            <li>
+              Select <b>Save</b> and confirm that the page accepts the new
+              value.
+            </li>
+            <li>
+              Run a controlled verification: generated tag for RFID Tag changes,
+              movement test for timing changes, or login/password-change test
+              for Security changes.
+            </li>
+            <li>
+              For retention changes, confirm reporting and traceability
+              requirements before allowing cleanup to remove older records.
+            </li>
+          </ol>
+          <div class="callout good">
+            <strong>Recommended practice:</strong>
+            if a setting change affects live movement validation, perform it
+            during a controlled maintenance/commissioning period rather than
+            while Assets are actively moving through the system.
+          </div>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span>
+            <span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Monitoring &amp; Alerts · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="monitoring.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a
+            class="active"
+            data-current="monitoring.html"
+            href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Monitoring &amp; Alerts</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Monitoring &amp; Alerts</h1>
+          <p class="lead">
+            Use Scan Histories and Alerts to trace RFID activity, investigate
+            exceptions and confirm system outcomes.
+          </p>
+          <h2>Scan Histories</h2>
+          <p>
+            Scan Histories store operational RFID observations. Filter by Asset,
+            Tag ID, Device, Location or result, then open Details for the
+            validation outcome.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Scan Histories list"
+              loading="lazy"
+              src="../assets/images/ui/scan-histories.jpg"
+            />
+            <figcaption>Scan Histories list</figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Scan History Detail panel"
+              loading="lazy"
+              src="../assets/images/ui/scan-history-detail-full.png"
+            />
+            <figcaption>
+              Scan History Detail — review check state, Asset, Shipment,
+              Location, Device and event result.
+            </figcaption>
+          </figure>
+          <h2>Alerts</h2>
+          <p>
+            Alerts show validation failures that need follow-up. Open an Alert
+            to review the reason, Asset/Shipment, Location, Device and related
+            Scan History. Resolve it only after investigation.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Alerts list"
+              loading="lazy"
+              src="../assets/images/ui/alerts-list.jpg"
+            />
+            <figcaption>Alerts list</figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Alert Details panel"
+              loading="lazy"
+              src="../assets/images/ui/alert-detail-full.png"
+            />
+            <figcaption>
+              Alert Details — review the affected Asset/Shipment, event
+              condition and resolution information.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Resolve Alert panel with resolution note"
+              loading="lazy"
+              src="../assets/images/ui/alert-resolve-full.png"
+            />
+            <figcaption>
+              Resolve Alert — add a useful resolution note after investigation,
+              then confirm.
+            </figcaption>
+          </figure>
+          <h3>Real-time Alert popup behavior</h3>
+          <figure class="figure">
+            <img
+              alt="Real-time RFID Alert popups"
+              loading="lazy"
+              src="../assets/images/ui/alert-popup.jpg"
+            />
+            <figcaption>Real-time RFID Alert popups</figcaption>
+          </figure>
+          <ul class="icon-list">
+            <li>Up to several alerts can stack on screen.</li>
+            <li>The popup shows Shipment/Material/reason when available.</li>
+            <li>
+              Acknowledge resolves the linked Alert with the note “Acknowledged
+              from alert popup”, then closes the popup.
+            </li>
+            <li>
+              <b>View in Alerts</b> opens the Alerts page filtered to the
+              relevant unresolved item.
+            </li>
+            <li>
+              If the popup auto-closes, the unresolved Alert remains on the
+              Alerts page.
+            </li>
+          </ul>
+          <div class="callout warn">
+            <b>Do not acknowledge just to clear the screen.</b> Acknowledge
+            performs a real resolution action for the linked Alert.
+          </div>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

@@ -1,0 +1,490 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Devices · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="devices.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a
+            class="active"
+            data-current="devices.html"
+            href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Devices</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Devices</h1>
+          <p class="lead">
+            Create and maintain Device records, technical credentials and
+            connection settings. The Create/Edit panel changes its available
+            inputs according to the selected Device Type.
+          </p>
+          <h2>Manage Devices</h2>
+          <p>
+            The Devices page lists configured units and their current connection
+            state. Use the filters to find a Device, open its details, edit
+            configuration, or create a new Device.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Devices list with connection statuses"
+              loading="lazy"
+              src="../assets/images/ui/device-list.jpg"
+            />
+            <figcaption>
+              Devices list — Device Type, Location, connection state,
+              identifiers and Scan History count.
+            </figcaption>
+          </figure>
+          <h2>Create or edit a Device</h2>
+          <p>
+            Select the correct <b>Device Type</b> first. The form then shows
+            only the fields supported by that type. All Device types use the
+            common identity fields below.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Common field</th>
+                  <th>How to use it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Name</b></td>
+                  <td>
+                    Use a clear, unique name that identifies the installed unit
+                    or application.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Type</b></td>
+                  <td>
+                    Select the Device Type that matches the real
+                    unit/application. This controls the additional form fields.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Location</b></td>
+                  <td>
+                    Assign the Device to the correct configured Location when
+                    applicable.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Device Identifiers</b></td>
+                  <td>
+                    Provide at least one identifier: Serial Number, MAC Address
+                    or IMEI Number.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="figure">
+            <img
+              alt="New Device panel showing common fields and identifiers"
+              loading="lazy"
+              src="../assets/images/ui/device-new.jpg"
+            />
+            <figcaption>
+              New Device — common fields and Device Identifiers. The example
+              Device Type is Handheld Scanner.
+            </figcaption>
+          </figure>
+          <h2 id="device-login-password">Device Login Password</h2>
+          <div class="callout">
+            <strong>Technical credential — not a human user password.</strong>
+            The <b>Device Login Password</b> is the technical credential used by
+            edge applications to
+            <b
+              >get data from the Admin system and submit data to the Admin
+              system</b
+            >. It is separate from Admin and Viewer account passwords.
+          </div>
+          <p>
+            The edge application uses a configured Device identifier together
+            with this password to authenticate to the Admin system. After
+            authentication, it can retrieve permitted reference/configuration
+            data and submit permitted operational data.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>How it is used</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Generate Password</b></td>
+                  <td>
+                    Creates a strong password. Copy it securely to the matching
+                    edge application during commissioning.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Edit existing Device</b></td>
+                  <td>
+                    Leave the password field blank to keep the current password.
+                    Enter/generate a new value only when rotating the
+                    credential.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Password assigned</b></td>
+                  <td>
+                    The edit panel shows whether a credential is already
+                    assigned, but the original password is not displayed again.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>When you change the Device Login Password:</strong>
+            update the same credential in the matching edge application.
+            Otherwise the edge application can no longer authenticate.
+          </div>
+          <h2 id="connection-info">Connection Info fields by Device Type</h2>
+          <p>
+            <b>Connection Info</b> is dynamic. The base connection-monitoring
+            fields are available for every current Device Type, while Port,
+            Printer Model and RFID-reader command fields appear only for the
+            types that need them.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Device Type</th>
+                  <th>IP Address</th>
+                  <th>Port</th>
+                  <th>Printer Model</th>
+                  <th>RFID reader controls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Handheld Scanner</b></td>
+                  <td>Shown</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><b>RFID Reader</b></td>
+                  <td>Shown</td>
+                  <td>Shown</td>
+                  <td>—</td>
+                  <td>
+                    Trigger Command, Auto Stop; when Auto Stop is enabled: Stop
+                    Delay and Stop Command
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Gantry Reader</b></td>
+                  <td>Shown</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><b>Workstation PC</b></td>
+                  <td>Shown</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><b>Printer</b></td>
+                  <td>Shown</td>
+                  <td>Shown</td>
+                  <td>Shown</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Base Connection Info</h3>
+          <p>
+            For every Device Type that supports network configuration, the panel
+            shows
+            <b>Observe device connection</b>,
+            <b>Connection check interval (ms)</b> and <b>IP Address</b>.
+          </p>
+          <ul class="icon-list">
+            <li>
+              <b>Observe device connection</b> — enable it when the Admin system
+              should periodically check whether the configured IP is reachable.
+            </li>
+            <li>
+              <b>Connection check interval (ms)</b> — becomes active when
+              connection monitoring is enabled. The supported range is
+              1,000–86,400,000 ms; the default is 60,000 ms.
+            </li>
+            <li>
+              <b>IP Address</b> — enter the address assigned to the Device in
+              the approved site IP plan. It is required when connection
+              monitoring is enabled.
+            </li>
+          </ul>
+          <figure class="figure">
+            <img
+              alt="Handheld Scanner Device form with connection monitoring fields"
+              loading="lazy"
+              src="../assets/images/ui/device-handheld-connection-form.png"
+            />
+            <figcaption>
+              Handheld Scanner — Device Login Password and base Connection Info
+              fields in the Create/Edit panel.
+            </figcaption>
+          </figure>
+          <h3>Handheld Scanner, Gantry Reader, Workstation PC and Other</h3>
+          <p>
+            These types show the same basic connection fields and Device Login
+            Password. Their application-specific connections are configured in
+            the corresponding edge application, not as additional inputs in this
+            panel.
+          </p>
+          <ul class="icon-list">
+            <li>
+              <b>Handheld Scanner:</b> configure Admin API, MQTT, RFID reader
+              and barcode/QR settings in the Handheld app.
+            </li>
+            <li>
+              <b>Gantry Reader:</b> configure local RFID reader, PicoScan LiDAR,
+              MQTT and Gantry runtime settings in the Gantry/Node-RED
+              application.
+            </li>
+            <li>
+              <b>Workstation PC:</b> configure Admin API, MQTT and assigned RFID
+              reader in the workstation/Dispatch application.
+            </li>
+            <li>
+              <b>Other:</b> use the base fields for the registered
+              edge/application identity and optional IP monitoring.
+            </li>
+          </ul>
+          <h3>Edit-mode connection status</h3>
+          <p>
+            When editing an existing monitored Device, the Connection Info
+            section also shows its latest connection status and last check time.
+            This helps verify whether the configured IP is reachable before
+            saving further changes.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Gantry Reader edit form showing monitored connection status"
+              loading="lazy"
+              src="../assets/images/ui/device-gantry-connection-form.png"
+            />
+            <figcaption>
+              Gantry Reader — edit-mode Connection Info shows connection status,
+              monitoring interval and IP Address.
+            </figcaption>
+          </figure>
+          <h3>RFID Reader</h3>
+          <p>
+            RFID Reader adds direct reader-control fields because the system can
+            connect to the reader endpoint.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Additional field</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Port</b></td>
+                  <td>TCP port used by the RFID reader connection.</td>
+                </tr>
+                <tr>
+                  <td><b>Trigger Command</b></td>
+                  <td>
+                    Command sent to start the configured RFID read operation.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Auto Stop</b></td>
+                  <td>
+                    When enabled, the application automatically sends a stop
+                    command after triggering.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Stop Delay</b></td>
+                  <td>
+                    Shown only when Auto Stop is enabled; defines the delay
+                    before stop.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Stop Command</b></td>
+                  <td>
+                    Shown only when Auto Stop is enabled; command sent to stop
+                    reading.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Printer</h3>
+          <p>
+            Printer does not show Device Login Password. It adds <b>Port</b> and
+            <b>Printer Model</b> to the base Connection Info fields. Select the
+            installed supported model and configure the printer endpoint
+            according to the approved site IP plan.
+          </p>
+          <div class="callout">
+            <strong
+              >Connection monitoring and printing are different checks.</strong
+            >
+            Online means the printer IP responded to the connection check.
+            Always run a real print test before operational use.
+          </div>
+          <figure class="figure">
+            <img
+              alt="Printer Device form with IP Address, Port and Printer Model"
+              loading="lazy"
+              src="../assets/images/ui/device-printer-connection-form.png"
+            />
+            <figcaption>
+              Printer — Connection Info adds Port and Printer Model; Device
+              Login Password is not used for this type.
+            </figcaption>
+          </figure>
+          <h2>View connection details after saving</h2>
+          <p>
+            Open a Device to review its configured IP, whether connection
+            monitoring is enabled, the check interval, last check time, latency
+            and the latest connection error when available.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Device Details connection status"
+              loading="lazy"
+              src="../assets/images/ui/device-details-connection.png"
+            />
+            <figcaption>
+              Device Details — connection state, configured IP, monitoring
+              interval and last check information.
+            </figcaption>
+          </figure>
+          <div class="callout warn">
+            <strong>Connection status is a reachability check.</strong>
+            An Online result does not by itself confirm MQTT, RFID reading,
+            application authentication, printing or encoding. Verify the
+            complete device workflow during commissioning.
+          </div>
+          <h2>Delete a Device</h2>
+          <p>
+            Use Delete only when the Device record is no longer required. The UI
+            asks for confirmation before deletion.
+          </p>
+          <figure class="figure">
+            <img
+              alt="Device delete confirmation"
+              loading="lazy"
+              src="../assets/images/ui/device-delete-confirm.png"
+            />
+            <figcaption>
+              Delete confirmation — verify that the correct Device was selected
+              before confirming.
+            </figcaption>
+          </figure>
+          <div class="callout warn">
+            <strong>Devices with Scan History cannot be deleted.</strong>
+            If historical scan records are attached, the system blocks deletion
+            so traceability is preserved.
+          </div>
+          <figure class="figure">
+            <img
+              alt="Device deletion blocked because scan histories are attached"
+              loading="lazy"
+              src="../assets/images/ui/device-delete-blocked.png"
+            />
+            <figcaption>
+              Deletion blocked — the Device still has Scan History records
+              attached.
+            </figcaption>
+          </figure>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

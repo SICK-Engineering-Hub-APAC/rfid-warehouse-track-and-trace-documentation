@@ -1,0 +1,296 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Troubleshooting · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="troubleshooting.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            class="active"
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Troubleshooting</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Troubleshooting</h1>
+          <p class="lead">
+            Start with the symptom, check basic power/network/configuration,
+            then use system records for evidence.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Symptom</th>
+                  <th>Likely cause</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cannot sign in to Admin</td>
+                  <td>Wrong URL/credential or service unavailable</td>
+                  <td>
+                    Confirm the Admin Web URL and use admin@sick.com with the
+                    current deployment password. If it was changed, contact the
+                    administrator.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Viewer cannot edit</td>
+                  <td>Expected read-only behavior</td>
+                  <td>
+                    This is expected for a Viewer account. Sign in with an Admin
+                    account when a configuration change is required.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Device shows Offline</td>
+                  <td>Power/network/device heartbeat mismatch</td>
+                  <td>
+                    Check power, cable/Wi-Fi, IP, Device ID and connection-check
+                    settings.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dispatch RFID reader Offline</td>
+                  <td>RFID reader IP/port/framing or network issue</td>
+                  <td>
+                    Ping/test the configured RFID reader address, verify reader
+                    Settings, and restart the connection only after checking
+                    configuration.
+                  </td>
+                </tr>
+                <tr>
+                  <td>MQTT Disconnected</td>
+                  <td>Broker URL/credentials/network issue</td>
+                  <td>
+                    Use app connection test; verify broker host/port and
+                    credentials.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Asset RFID not recognized</td>
+                  <td>Invalid EPC, tag not registered, wrong reader field</td>
+                  <td>
+                    Confirm Tag ID in Assets and read the EPC with a known
+                    reader. Default unknown-tag alert is disabled.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Wrong Shipment Asset</td>
+                  <td>Asset tag belongs to another Shipment</td>
+                  <td>
+                    Remove the Asset from the current transaction and use the
+                    correct Shipment workflow.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rack QR not recognized</td>
+                  <td>Damaged/wrong QR or Rack not present</td>
+                  <td>
+                    Regenerate/download Rack QR from Admin and verify the Rack
+                    exists.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rack/Location mismatch</td>
+                  <td>Handheld Location does not match Rack Location</td>
+                  <td>
+                    Correct Handheld Location Settings or choose the correct
+                    Rack.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement stays Pending</td>
+                  <td>Destination event not received</td>
+                  <td>
+                    Check physical route, destination Gantry health and pending
+                    movement details.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Movement Timed Out</td>
+                  <td>Travel/detection exceeded configured timeout</td>
+                  <td>
+                    Find Asset physically, check devices/rule timeout, then
+                    resolve/replan safely.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Invalid route/out-of-order alert</td>
+                  <td>Wrong sequence or no matching enabled rule</td>
+                  <td>
+                    Review movement plan and RFID Movement rules before retry.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shipment tag-count alert</td>
+                  <td>
+                    Expected registered tagged Asset not observed in Gantry
+                    window
+                  </td>
+                  <td>
+                    Check all expected Assets/tags and RF coverage; verify
+                    correct Shipment workflow.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Printer cannot encode</td>
+                  <td>Wrong printer IP/model/network/tag</td>
+                  <td>
+                    Verify the configured RFID printer address, printer ready
+                    state and printer model; retry with a known tag.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Handheld waiting for confirmation</td>
+                  <td>Event queued/published but system result not received</td>
+                  <td>
+                    Check API/MQTT connectivity; keep workflow intact and allow
+                    sync/reconnect.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Handheld FAILED/PARTIAL</td>
+                  <td>System rejected some/all reads</td>
+                  <td>
+                    Review listed Assets and Shipment/Rack validation, correct
+                    issue and retry.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dispatch Confirm disabled</td>
+                  <td>Blocking validation or offline dependency</td>
+                  <td>
+                    Check Central service, MQTT and RFID reader status, then
+                    remove or correct wrong/unknown/ineligible tags.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Alert popup disappeared</td>
+                  <td>Popup timer expired</td>
+                  <td>
+                    Open Alerts; unresolved Alert remains until
+                    resolved/acknowledged.
+                  </td>
+                </tr>
+                <tr>
+                  <td>IP address conflict on a device network</td>
+                  <td>
+                    Gantry local device networks are accidentally bridged or
+                    duplicated IP ranges overlap
+                  </td>
+                  <td>
+                    Compare with the approved IP plan. Use SOPAS ET for
+                    supported SICK devices, the device webpage for
+                    TDC-X/PicoScan, or the third-party device's own network
+                    interface. Then retest connectivity.
+                  </td>
+                </tr>
+                <tr>
+                  <td>App restarted during transaction</td>
+                  <td>Pending state requires recovery</td>
+                  <td>
+                    Allow app to restore persisted state; do not create a new
+                    duplicate transaction until status is known.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>When to stop and escalate</h2>
+          <ul class="icon-list">
+            <li>
+              Same Asset appears completed in one application but failed in
+              Admin.
+            </li>
+            <li>
+              Multiple devices appear to use the same IP address on one physical
+              network.
+            </li>
+            <li>
+              An RFID rule change unexpectedly modifies Asset status/location.
+            </li>
+            <li>
+              Repeated Gantry events create unexpected duplicate movements.
+            </li>
+            <li>
+              An RFID reader, direction sensor, printer, or other field device
+              requires firmware-level or engineering-tool diagnosis beyond basic
+              network checks.
+            </li>
+          </ul>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

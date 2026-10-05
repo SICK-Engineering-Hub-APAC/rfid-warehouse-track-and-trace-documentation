@@ -1,0 +1,192 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Locations &amp; Racks · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="locations.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a
+            class="active"
+            data-current="locations.html"
+            href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Locations &amp; Racks</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Locations &amp; Racks</h1>
+          <p class="lead">
+            Configure operational Locations, Racks and Rack QR codes used by the
+            tracking workflows.
+          </p>
+          <h2>Manage Locations and Racks</h2>
+          <figure class="figure">
+            <img
+              alt="Locations list with Warehouse and Receiving/Dispatch locations"
+              loading="lazy"
+              src="../assets/images/ui/locations-list-full.png"
+            />
+            <figcaption>
+              Locations — review configured Locations, Asset/Rack/Device counts
+              and route information.
+            </figcaption>
+          </figure>
+          <h3>Create a Location</h3>
+          <ol class="steps">
+            <li>Open <b>Locations</b> → <b>New</b>.</li>
+            <li>Enter a clear Name, Zone Code and Location Role.</li>
+            <li>Add Route Notes if helpful.</li>
+            <li>Save. Zone Code must be unique.</li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="New Location"
+              loading="lazy"
+              src="../assets/images/ui/location-new.jpg"
+            />
+            <figcaption>New Location</figcaption>
+          </figure>
+          <h3>Create a Rack and QR code</h3>
+          <ol class="steps">
+            <li>Open a Warehouse Location and choose <b>Racks</b>.</li>
+            <li>Select <b>Add rack</b> and give the Rack a unique name.</li>
+            <li>Save; generate the Rack QR code.</li>
+            <li>
+              Download and print the QR code, then place it where the handheld
+              scanner can read it reliably.
+            </li>
+          </ol>
+          <figure class="figure">
+            <img
+              alt="Racks panel inside a Warehouse Location"
+              loading="lazy"
+              src="../assets/images/ui/location-racks-list-full.png"
+            />
+            <figcaption>
+              Racks in a Warehouse — open the Location, review existing Racks
+              and use Add rack when needed.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              alt="Rack configuration and generated QR code"
+              loading="lazy"
+              src="../assets/images/ui/rack-qr.jpg"
+            />
+            <figcaption>Rack configuration and generated QR code</figcaption>
+          </figure>
+          <h3>Print Rack QR labels using the A4 Word template</h3>
+          <p>
+            Use the included A4 Word template to print consistent Rack labels.
+            Always replace its example QR with the QR generated for the actual
+            Rack.
+          </p>
+          <p>
+            <a
+              class="download-link"
+              download=""
+              href="../assets/downloads/P4_Rack_QR_Code_A4_Template.docx"
+            >
+              Download Rack QR A4 Word template (.docx)
+            </a>
+          </p>
+          <ol class="steps">
+            <li>
+              Create/save the Rack in Admin Web and generate its Rack QR code.
+            </li>
+            <li>
+              Download the generated Rack QR image from the Rack configuration
+              panel.
+            </li>
+            <li>Open the supplied Word template.</li>
+            <li>
+              Replace the example QR image with the QR code generated for the
+              actual Rack.
+            </li>
+            <li>
+              Update the visible Rack/level and Warehouse/Location text so it
+              matches the physical installation.
+            </li>
+            <li>
+              Print the A4 page clearly and attach the label where the handheld
+              barcode/QR scanner can read it reliably.
+            </li>
+            <li>
+              Before operational use, scan the printed label with
+              <b>Rack QR Search</b> or <b>Rack Stock Take</b> and confirm that
+              the expected Rack is resolved.
+            </li>
+          </ol>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

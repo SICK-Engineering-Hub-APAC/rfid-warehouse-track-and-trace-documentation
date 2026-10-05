@@ -1,0 +1,291 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Overview &amp; Quick Start · RFID Warehouse Track and Trace</title>
+    <link href="assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="index.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a class="active" data-current="index.html" href="index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a data-current="handheld.html" href="pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="pages/devices.html">Devices</a
+          ><a data-current="rules.html" href="pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a data-current="administration.html" href="pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Overview &amp; Quick Start</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <section class="hero">
+            <div class="badges">
+              <span class="badge">TDC-X</span><span class="badge">RFU630</span
+              ><span class="badge">RFU620</span
+              ><span class="badge">PicoScan150</span
+              ><span class="badge">Cipherlab RS38</span
+              ><span class="badge">RFID</span>
+            </div>
+            <h1>RFID Warehouse Track and Trace</h1>
+            <p>
+              End-to-end operating and configuration guide for administrators,
+              managers, warehouse workers and Viewer users. Use this manual to
+              configure the system, plan movements, store Assets, perform
+              Dispatch Checkout, monitor RFID activity and respond to
+              exceptions.
+            </p>
+          </section>
+          <div class="grid">
+            <div class="card half">
+              <h3>Admin login</h3>
+              <p>Open the Admin Web application in a supported browser.</p>
+              <div class="credential">
+                <strong>Initial / commissioning Admin account</strong
+                ><br />Email: <code>admin@sick.com</code><br />Password:
+                <code>admin</code><br />
+              </div>
+              <p class="small muted">
+                These credentials are the deployment credentials specified for
+                this documentation. If the password is changed, use the current
+                site-approved password.
+              </p>
+            </div>
+            <div class="card half">
+              <h3>Default account types</h3>
+              <ul class="icon-list">
+                <li>
+                  <b>Admin</b> — configures Assets, Locations, Racks, Devices,
+                  RFID rules, Alert rules and Settings, and has full monitoring
+                  access.
+                </li>
+                <li>
+                  <b>Viewer</b> — Performs warehouse Storage and Dispatch
+                  operations, monitors operational pages such as Dashboard,
+                  Assets, Locations, Devices, Scan Histories, Asset Movements
+                  and Alerts without changing configuration.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h2>How the system works</h2>
+          <div class="flow">
+            <span>Register Asset + RFID</span><i>→</i
+            ><span>Receive / store</span><i>→</i
+            ><span>Move through Gantries</span><i>→</i
+            ><span>Partial Checkout</span><i>→</i><span>Final Dispatch</span>
+          </div>
+          <p class="lead">
+            End-user guide for configuring, operating and monitoring RFID
+            Warehouse Track and Trace.
+          </p>
+          <div class="callout">
+            <b>Core Asset lifecycle:</b>
+            <span class="status-pill status-received">RECEIVED</span> →
+            <span class="status-pill status-storage">IN_STORAGE</span> →
+            <span class="status-pill status-ready">READY_FOR_DISPATCH</span> →
+            <span class="status-pill status-dispatched">DISPATCHED</span>
+          </div>
+          <figure class="figure">
+            <img
+              alt="Admin Dashboard overview"
+              loading="lazy"
+              src="assets/images/ui/dashboard-overview.jpg"
+            />
+            <figcaption>Admin Dashboard overview</figcaption>
+          </figure>
+          <h2>Quick operating sequence</h2>
+          <ol class="steps">
+            <li>
+              Configure the site. Apply the approved IP plan, then configure
+              Locations, Racks, Devices, RFID Rules, Alert Rules and Settings.
+              Use SOPAS ET for supported SICK devices; use the device webpage
+              for TDC-X and PicoScan LiDAR.
+            </li>
+            <li>
+              Create Assets. Assign Shipment, material and RFID Tag ID; print
+              the tag when required.
+            </li>
+            <li>
+              Plan movement. Use Dashboard actions to create Pending Storage or
+              Dispatch movement requests.
+            </li>
+            <li>
+              Move and store. Gantries validate route/direction; Handheld Rack
+              Stock Take confirms final Rack storage.
+            </li>
+            <li>
+              Checkout. Scan the required eligible subset of the Shipment at the
+              Dispatch workstation.
+            </li>
+            <li>
+              Final dispatch. The final Gantry changes eligible Assets from
+              READY_FOR_DISPATCH to DISPATCHED.
+            </li>
+            <li>
+              Monitor. Use Asset Movements, Scan Histories and Alerts; respond
+              to real-time Alert popups when needed.
+            </li>
+          </ol>
+          <div class="two">
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Dashboard — Bring Assets to Warehouse"
+                  loading="lazy"
+                  src="assets/images/ui/workflow-warehouse.jpg"
+                />
+                <figcaption>
+                  Dashboard — Bring Assets to Warehouse · Click image to
+                  enlarge.
+                </figcaption>
+              </figure>
+            </div>
+            <div>
+              <figure class="figure">
+                <img
+                  alt="Dashboard — Bring Assets to Dispatch Checkout"
+                  loading="lazy"
+                  src="assets/images/ui/workflow-dispatch.jpg"
+                />
+                <figcaption>
+                  Dashboard — Bring Assets to Dispatch Checkout · Click image to
+                  enlarge.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <section class="section-anchor" id="storage-workflow-diagram">
+            <h3>Storage movement workflow</h3>
+            <p>
+              Storage movement sends eligible RFID-tagged Assets from the
+              receiving/dispatch area to the selected Warehouse. Gantries
+              validate passage and direction. At the destination, the Handheld
+              app confirms the Rack and stored Assets.
+            </p>
+            <figure class="figure">
+              <img
+                alt="Storage movement sequence showing receiving-area Gantry, warehouse Gantry and Rack storage"
+                loading="lazy"
+                src="assets/images/workflow/storage-movement-workflow.png"
+              />
+              <figcaption>
+                Storage movement sequence — Asset passes the configured Gantry
+                points and is finally confirmed at the destination Rack using
+                the Handheld RFID application.
+              </figcaption>
+            </figure>
+          </section>
+          <section class="section-anchor" id="dispatch-workflow-diagram">
+            <h3>Dispatch workflow</h3>
+            <p>
+              Dispatch movement sends eligible RFID-tagged Assets from their
+              Warehouse to the dispatch/receiving area. The Dispatch workstation
+              performs Checkout, then the final dispatch Gantry completes the
+              outbound flow.
+            </p>
+            <figure class="figure">
+              <img
+                alt="Dispatch sequence showing warehouse Gantry, receiving-area Gantry, Checkout workstation and final dispatch Gantry"
+                loading="lazy"
+                src="assets/images/workflow/dispatch-movement-workflow.png"
+              />
+              <figcaption>
+                Dispatch sequence — Asset leaves the warehouse, reaches the
+                Dispatch area, is checked out at the workstation, and passes the
+                final dispatch Gantry.
+              </figcaption>
+            </figure>
+          </section>
+          <h2>Important operating rules</h2>
+          <ul class="icon-list">
+            <li>
+              One RFID/business event must contain Assets from one Shipment
+              only.
+            </li>
+            <li>
+              Different Shipment flows can run independently and out of order.
+            </li>
+            <li>
+              Unregistered EPCs are ignored by the default configuration; the
+              Unknown RFID Tag alert rule is disabled by default.
+            </li>
+            <li>
+              Each Dispatch workstation uses its configured RFID reader and
+              supports a single active local Checkout session at a time.
+            </li>
+            <li>
+              Partial Checkout is allowed: unscanned eligible Assets of the same
+              Shipment remain for a later Checkout.
+            </li>
+            <li>
+              A movement rule's own timeout overrides the global movement
+              fallback timeout.
+            </li>
+          </ul>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+      <p class="small">
+        The default web access model contains two account types: Admin and
+        Viewer.
+      </p>
+    </div>
+    <script src="assets/js/manual.js"></script>
+  </body>
+</html>

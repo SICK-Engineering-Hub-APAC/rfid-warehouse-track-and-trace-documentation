@@ -1,0 +1,732 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Handheld App · RFID Warehouse Track and Trace</title>
+    <link href="../assets/css/manual.css" rel="stylesheet" />
+  </head>
+  <body data-page="handheld.html">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <img alt="SICK" src="../assets/images/brand/sick-logo.svg" />
+          <h1>RFID Warehouse Track and Trace</h1>
+          <p>
+            End-User Manual · v1.0.0<br />Supported system · v1.0.0<br />SICK
+          </p>
+        </div>
+        <nav class="nav">
+          <div class="nav-group">Start here</div>
+          <a data-current="index.html" href="../index.html"
+            >Overview &amp; Quick Start</a
+          ><a data-current="end-to-end.html" href="../pages/end-to-end.html"
+            >End-to-End Setup</a
+          >
+          <div class="nav-group">Operate the system</div>
+          <a data-current="dashboard.html" href="../pages/dashboard.html"
+            >Dashboard &amp; Movement Planning</a
+          ><a data-current="movements.html" href="../pages/movements.html"
+            >Asset Movements</a
+          ><a data-current="monitoring.html" href="../pages/monitoring.html"
+            >Monitoring &amp; Alerts</a
+          ><a
+            class="active"
+            data-current="handheld.html"
+            href="../pages/handheld.html"
+            >Handheld App</a
+          ><a data-current="dispatch.html" href="../pages/dispatch.html"
+            >Dispatch Checkout</a
+          >
+          <div class="nav-group">Configure the system</div>
+          <a data-current="assets.html" href="../pages/assets.html">Assets</a
+          ><a data-current="locations.html" href="../pages/locations.html"
+            >Locations &amp; Racks</a
+          ><a data-current="devices.html" href="../pages/devices.html"
+            >Devices</a
+          ><a data-current="rules.html" href="../pages/rules.html"
+            >RFID &amp; Alert Rules</a
+          ><a data-current="settings.html" href="../pages/settings.html"
+            >System Settings</a
+          >
+          <div class="nav-group">Administration</div>
+          <a
+            data-current="administration.html"
+            href="../pages/administration.html"
+            >Access, Import/Export &amp; Logs</a
+          >
+          <div class="nav-group">Reference</div>
+          <a data-current="system.html" href="../pages/system.html"
+            >System, Devices &amp; Network</a
+          ><a data-current="reference.html" href="../pages/reference.html"
+            >Statuses &amp; Default Settings</a
+          >
+          <div class="nav-group">Support</div>
+          <a
+            data-current="troubleshooting.html"
+            href="../pages/troubleshooting.html"
+            >Troubleshooting</a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu">☰ Menu</button>
+          <div class="title">Handheld App</div>
+          <div class="meta">System v1.0.0 · Documentation v1.0.0</div>
+        </header>
+        <article class="content">
+          <h1>Handheld RFID Scanner</h1>
+          <p class="lead">
+            Use the Handheld app for Rack Stock Take, Rack QR lookup and RFID
+            Tag lookup. Settings and Diagnostics support commissioning and
+            recovery.
+          </p>
+          <h2>Home screen and status indicators</h2>
+          <p>
+            Home provides Rack Stock Take, Rack QR Search and RFID Tag Search.
+            Status indicators show RFID reader, Admin API, barcode/QR scanner,
+            MQTT and pending synchronization.
+          </p>
+          <figure class="figure handheld-shot">
+            <img
+              alt="S-RFID Reader Home screen"
+              loading="lazy"
+              src="../assets/images/ui/handheld-home.jpg"
+            />
+            <figcaption>Current Home screen evidence</figcaption>
+          </figure>
+          <div class="screenshot-placeholder">
+            <b>HH-01 · Replace later: Home + status header</b><br />Capture the
+            full S-RFID Reader Home screen with the RFID, API, barcode, MQTT and
+            pending-queue indicators visible.
+          </div>
+          <h3>Application menu</h3>
+          <p>
+            Use the app menu to open Home, RFID Tag Search, Rack QR Search,
+            Device Info, Connection Status, Settings and Diagnostics. Device
+            Info shows Device/Location identity; Connection Status shows API,
+            MQTT, RFID, barcode and sync state.
+          </p>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-02 · Replace later: Application menu</b><br />Capture the
+              menu with all available actions visible.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-03 · Replace later: Connection Status</b><br />Capture API,
+              MQTT, RFID, barcode and pending-sync status together.
+            </div>
+          </div>
+          <h2>RFID Tag Search</h2>
+          <p>
+            Use RFID Tag Search when you need to identify a tag without starting
+            a storage transaction.
+          </p>
+          <ol class="steps">
+            <li>Open <b>RFID Tag Search</b>.</li>
+            <li>
+              Use the physical RFID trigger to read nearby tags. The screen
+              keeps a recent list and shows the latest scanned tag/time.
+            </li>
+            <li>
+              Select <b>Asset Info</b> for a tag to resolve it through the Admin
+              system.
+            </li>
+            <li>
+              Review the classification: <b>Asset</b>, <b>Rack</b> or
+              <b>Unknown</b>.
+            </li>
+            <li>
+              For an Asset, check Material, Description, Serial Number, Shipment
+              ID, current Location, Rack and Status. For a Rack, check Rack Name
+              and Location.
+            </li>
+            <li>
+              Use <b>Clear Results</b> when you want to start a fresh search
+              list.
+            </li>
+          </ol>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-04 · Replace later: RFID Tag Search</b><br />Capture the
+              scanned-tag list and summary tiles after reading several tags.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-05 · Replace later: Asset/Rack information</b><br />Capture
+              the detail dialog for a registered Asset and, if possible, a Rack.
+            </div>
+          </div>
+          <h2>Rack QR Search</h2>
+          <p>
+            Rack QR Search is a lookup tool. It does not itself complete a Stock
+            Take.
+          </p>
+          <ol class="steps">
+            <li>Open <b>Rack QR Search</b>.</li>
+            <li>
+              Use the handheld barcode/QR scanner to scan the Rack QR code.
+            </li>
+            <li>The screen lists the scanned QR code and scan time.</li>
+            <li>
+              Select <b>Rack Info</b> to view the resolved Rack Name, Rack ID,
+              RFID Tag ID and Location.
+            </li>
+            <li>
+              If the QR code is not recognized, verify that the Rack exists in
+              Admin Web and regenerate the Rack QR code if necessary.
+            </li>
+          </ol>
+          <div class="callout">
+            <strong>Need a printable Rack label?</strong>
+            Create the Rack and generate/download its QR code in Admin Web, then
+            use the supplied
+            <a
+              download=""
+              href="../assets/downloads/P4_Rack_QR_Code_A4_Template.docx"
+              >Rack QR A4 Word template</a
+            >
+            to prepare the physical label. Replace the example QR/text with the
+            actual Rack information before printing.
+          </div>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-06 · Replace later: Rack QR Search</b><br />Capture a
+              successfully scanned Rack QR code in the results list.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-07 · Replace later: Rack information</b><br />Capture the
+              resolved Rack detail dialog including Location.
+            </div>
+          </div>
+          <h2>Rack Stock Take / Storage</h2>
+          <p>
+            Rack Stock Take is the transactional workflow used to place or
+            confirm Assets in a physical Rack. A workflow is tied to the
+            Handheld's configured Location and one selected Shipment ID.
+          </p>
+          <h3>1. Start the workflow and select the Rack</h3>
+          <ol class="steps">
+            <li>
+              From Home, select <b>Rack Stock Take</b>, then start the session.
+            </li>
+            <li>
+              Scan the target Rack QR code using the barcode/QR scanner. The app
+              can also accept the Rack QR value in the on-screen Rack QR field
+              when required.
+            </li>
+            <li>
+              Review the Rack candidate. The app checks the Rack against the
+              Handheld's configured Location.
+            </li>
+            <li>
+              If the Location matches, select <b>Confirm Rack</b>. If it does
+              not match, clear the candidate and scan the correct Rack.
+            </li>
+          </ol>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-08 · Replace later: Start Stock Take</b><br />Capture the
+              idle Rack Stock Take screen before a session starts.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-09 · Replace later: Rack QR + Confirm Rack</b><br />Capture
+              a resolved Rack candidate, Location check and Confirm Rack action.
+            </div>
+          </div>
+          <h3>2. Select Shipment and scan Assets</h3>
+          <ol class="steps">
+            <li>
+              After the Rack is confirmed, wait for the Shipment list to load
+              from the Admin system.
+            </li>
+            <li>
+              Select the required <b>Shipment ID</b>. A valid Shipment is
+              required before completion.
+            </li>
+            <li>
+              Press and hold the physical RFID trigger to scan Asset tags.
+            </li>
+            <li>
+              Review the staged Asset table. Tap an Asset to inspect its
+              details; use the remove action if an Asset should not be
+              submitted.
+            </li>
+            <li>
+              Only Assets belonging to the selected Shipment are included in the
+              submit set. Do not mix Shipments in one Stock Take transaction.
+            </li>
+            <li>
+              Resolve any blocking issue shown by the app before continuing.
+            </li>
+          </ol>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-10 · Replace later: Shipment selection</b><br />Capture the
+              confirmed Rack, Shipment selector and selected Shipment ID.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-11 · Replace later: Asset scanning</b><br />Capture the
+              staged Asset table with Tag ID, Shipment ID and Asset Status
+              visible.
+            </div>
+          </div>
+          <h3>3. Complete Storage and wait for confirmation</h3>
+          <ol class="steps">
+            <li>
+              When the Rack, Shipment and staged Assets are correct, select
+              <b>Complete Storage</b>.
+            </li>
+            <li>
+              The app stops scanning and saves the outbound event in its durable
+              local queue before attempting delivery.
+            </li>
+            <li>
+              The workflow enters Awaiting system confirmation. Wait for the
+              central Admin system result before starting another Rack workflow.
+            </li>
+            <li>
+              SUCCEEDED confirms acceptance. A matching DUPLICATE response
+              safely confirms the same already-processed request.
+            </li>
+            <li>
+              FAILED or PARTIAL keeps the workflow recoverable. Review the
+              message, correct the Asset/configuration issue, then retry.
+            </li>
+          </ol>
+          <div class="two">
+            <div class="screenshot-placeholder">
+              <b>HH-12 · Replace later: Awaiting system confirmation</b
+              ><br />Capture the pending confirmation state after Complete
+              Storage.
+            </div>
+            <div class="screenshot-placeholder">
+              <b>HH-13 · Replace later: Result / recovery</b><br />Capture one
+              success result and one FAILED/PARTIAL recovery message if
+              available.
+            </div>
+          </div>
+          <h3>Validation rules users should understand</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>Expected behavior</th>
+                  <th>User action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rack belongs to another Location</td>
+                  <td>Rack confirmation is blocked.</td>
+                  <td>
+                    Use the correct Rack or correct the Handheld Location in
+                    Settings.
+                  </td>
+                </tr>
+                <tr>
+                  <td>No Shipment selected</td>
+                  <td>Completion is blocked.</td>
+                  <td>Select a valid Shipment ID.</td>
+                </tr>
+                <tr>
+                  <td>Asset belongs to another Shipment</td>
+                  <td>
+                    It is not accepted into the selected Shipment submit set.
+                  </td>
+                  <td>Use the correct Shipment workflow.</td>
+                </tr>
+                <tr>
+                  <td>Unknown/unresolved tag while offline</td>
+                  <td>
+                    The app can keep the issue visible and block unsafe
+                    completion where authoritative resolution is required.
+                  </td>
+                  <td>Restore connectivity and resolve the tag.</td>
+                </tr>
+                <tr>
+                  <td>Duplicate RFID read</td>
+                  <td>
+                    Reader/service deduplication prevents the same tag from
+                    inflating the staged count.
+                  </td>
+                  <td>No action unless the physical Asset list is wrong.</td>
+                </tr>
+                <tr>
+                  <td>App restarts during active workflow</td>
+                  <td>A recovery prompt can offer Resume or Discard.</td>
+                  <td>
+                    Resume when the physical transaction is still valid; discard
+                    only when intentionally abandoning it.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="screenshot-placeholder">
+            <b>HH-14 · Replace later: Recovery prompt</b><br />Capture the
+            Resume / Discard dialog shown after restoring an incomplete Rack
+            workflow.
+          </div>
+          <h2>Handheld Settings</h2>
+          <p>
+            Settings are for authorized site/service personnel. Open Settings
+            and authenticate with the site Settings account. The service
+            shortcut is five taps on the title/logo area within a short
+            interval.
+          </p>
+          <div class="screenshot-placeholder">
+            <b>HH-15 · Replace later: Settings authentication</b><br />Capture
+            the protected Settings sign-in dialog.
+          </div>
+          <h3>General</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Purpose</th>
+                  <th>Guidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Device ID</td>
+                  <td>
+                    Logical identity used by API/MQTT and the central system.
+                  </td>
+                  <td>
+                    Must match the Handheld Scanner Device record in Admin Web.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Language</td>
+                  <td>Handheld UI language.</td>
+                  <td>Select the language used by the site team.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="screenshot-placeholder">
+            <b>HH-16 · Replace later: Settings — General</b><br />Capture Device
+            ID and Language fields.
+          </div>
+          <h3>Device Location</h3>
+          <p>
+            Select <b>Load/Choose Location</b> and choose the real
+            warehouse/area from the Locations returned by the Admin API. The
+            selected Location is used for Rack validation and event context.
+          </p>
+          <div class="screenshot-placeholder">
+            <b>HH-17 · Replace later: Settings — Device Location</b
+            ><br />Capture the current Location and loaded Location selector.
+          </div>
+          <h3>Remote API</h3>
+          <p>
+            These settings connect the Handheld to the central Admin system. Use
+            <b>Test API Connection</b> after changes.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Base URL</td>
+                  <td>Address of the central Admin API.</td>
+                </tr>
+                <tr>
+                  <td>Health Path</td>
+                  <td>
+                    Endpoint used by the app to verify that the Admin service is
+                    reachable.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Locations / Assets / Racks Paths</td>
+                  <td>
+                    REST endpoints used for Location loading and tag/Rack
+                    resolution.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Device Login / Refresh Paths</td>
+                  <td>Endpoints used for technical device authentication.</td>
+                </tr>
+                <tr>
+                  <td>Timeout / Retry Count</td>
+                  <td>
+                    How long the app waits and how many retry attempts it allows
+                    for API calls.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Technical Credential Required</td>
+                  <td>Whether device authentication is required.</td>
+                </tr>
+                <tr>
+                  <td>Device Login Password</td>
+                  <td>
+                    Technical credential paired with the Admin Device identity.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="screenshot-placeholder">
+            <b>HH-18 · Replace later: Settings — Remote API</b><br />Capture the
+            API fields and Test API Connection result.
+          </div>
+          <h3>MQTT</h3>
+          <p>
+            MQTT carries RFID observations and the system result for Rack Stock
+            Take. Use <b>Test MQTT Connection</b> after changes.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose / expected value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Protocol / TLS</td>
+                  <td>
+                    Select the broker transport approved by the deployment:
+                    ws/wss/mqtt/mqtts.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Broker Host / Port</td>
+                  <td>
+                    Address and port of the MQTT broker reachable by the
+                    handheld Wi-Fi network.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Username / Password</td>
+                  <td>Broker credentials where required.</td>
+                </tr>
+                <tr>
+                  <td>Client ID</td>
+                  <td>
+                    MQTT client identity. Keep it unique per deployed handheld.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Keep Alive / Clean Session</td>
+                  <td>Connection/session behavior.</td>
+                </tr>
+                <tr>
+                  <td>QoS</td>
+                  <td>
+                    Use <b>1</b> for the RFID event contract unless the
+                    deployment explicitly changes the contract.
+                  </td>
+                </tr>
+                <tr>
+                  <td>RFID Observation Topic</td>
+                  <td><code>p4/rfid/v1/{deviceId}/events</code></td>
+                </tr>
+                <tr>
+                  <td>Handheld Result Topic</td>
+                  <td><code>p4/handheld/v1/{deviceId}/responses</code></td>
+                </tr>
+                <tr>
+                  <td>Connection Timeout / Reconnect</td>
+                  <td>
+                    Controls connection test/recovery and minimum/maximum
+                    reconnect delay.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="screenshot-placeholder">
+            <b>HH-19 · Replace later: Settings — MQTT</b><br />Capture
+            broker/TLS/QoS/topic/reconnect fields and the MQTT connection test.
+          </div>
+          <h3>RFID &amp; Offline Sync</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Setting</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>RFID Duplicate Read Window</td>
+                  <td>
+                    Suppresses repeated reads of the same EPC within a short
+                    time window.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Automatic Sync</td>
+                  <td>
+                    Automatically drains queued operations when connectivity
+                    permits.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sync Batch Size</td>
+                  <td>
+                    Maximum queued records processed in one synchronization
+                    batch.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Periodic Retry Interval</td>
+                  <td>How often pending work is retried.</td>
+                </tr>
+                <tr>
+                  <td>Stale Publishing Recovery</td>
+                  <td>
+                    Recovers events left in an in-progress state after
+                    interruption/restart.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Max Retry Delay / Retry Limit</td>
+                  <td>Bounds backoff and total retry attempts.</td>
+                </tr>
+                <tr>
+                  <td>Max Queue Size</td>
+                  <td>Safety capacity of the local Outbox.</td>
+                </tr>
+                <tr>
+                  <td>Queue / Published-History Retention</td>
+                  <td>
+                    How long queued/history records remain in local storage.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="screenshot-placeholder">
+            <b>HH-20 · Replace later: Settings — RFID &amp; Offline Sync</b
+            ><br />Capture duplicate-read and Outbox synchronization settings.
+          </div>
+          <h3>Reference Cache</h3>
+          <p>
+            The Handheld caches Location, Rack, Asset and unknown-tag lookups
+            for short communication interruptions. Use Reference Cache settings
+            to control cache lifetime and stale-display grace.
+          </p>
+          <div class="screenshot-placeholder">
+            <b>HH-21 · Replace later: Settings — Reference Cache</b
+            ><br />Capture Location/Rack/Asset/Unknown Tag TTL and stale-display
+            grace settings.
+          </div>
+          <h3>Access and Service Tools</h3>
+          <p>
+            <b>Access</b> allows an authorized service user to change the
+            protected Settings password. <b>Service Tools</b> opens Diagnostics.
+          </p>
+          <div class="screenshot-placeholder">
+            <b>HH-22 · Replace later: Settings — Access / Service Tools</b
+            ><br />Capture password-change fields and Open Diagnostics action
+            without exposing a real password.
+          </div>
+          <h2>Diagnostics and connection testing</h2>
+          <p>
+            Diagnostics is the main support screen when the Handheld cannot
+            scan, resolve data or synchronize. It shows:
+          </p>
+          <ul class="icon-list">
+            <li>
+              Admin API status, URL, last successful request, last health check
+              and last error.
+            </li>
+            <li>
+              MQTT state, broker endpoint, last connection/publish/disconnect
+              and last error.
+            </li>
+            <li>App/build, Device ID and configured Location.</li>
+            <li>RFID reader state, scan state and current scan mode.</li>
+            <li>Barcode scanner state/listening state.</li>
+            <li>
+              Outbox/sync state, pending/publishing/retryable/permanent counts
+              and recent retry reason.
+            </li>
+            <li>SQLite database health, migration version and table count.</li>
+          </ul>
+          <p>
+            Available service actions include <b>Test RFID</b>, <b>Test API</b>,
+            <b>Test MQTT</b> and <b>Retry Sync</b>.
+          </p>
+          <div class="screenshot-placeholder">
+            <b>HH-23 · Replace later: Diagnostics</b><br />Capture the
+            connectivity overview, Outbox/Sync status and the four service-test
+            buttons.
+          </div>
+          <h2>Configure the handheld RFID hardware</h2>
+          <p>
+            Use the approved vendor RFID utility to configure trigger mode, RF
+            power, filters, session/inventory behavior and frequency. Match the
+            site's read-zone requirements and avoid filters that hide valid
+            EPCs.
+          </p>
+          <div class="two">
+            <figure class="figure handheld-shot">
+              <img
+                alt="Handheld RFID configuration utility"
+                loading="lazy"
+                src="../assets/images/ui/handheld-ezconfig.jpg"
+              />
+              <figcaption>
+                Handheld RFID configuration utility evidence
+              </figcaption>
+            </figure>
+            <figure class="figure handheld-shot">
+              <img
+                alt="Handheld RFID preferences"
+                loading="lazy"
+                src="../assets/images/ui/handheld-rfid-pref.jpg"
+              />
+              <figcaption>Handheld RFID preferences evidence</figcaption>
+            </figure>
+          </div>
+          <h2>Offline and restart behavior</h2>
+          <ul class="icon-list">
+            <li>
+              Business observations are persisted in the local Outbox before
+              publication.
+            </li>
+            <li>
+              If MQTT is unavailable, pending work remains queued and automatic
+              sync retries when connectivity is restored.
+            </li>
+            <li>
+              Restarting the app can restore an incomplete Rack workflow and
+              pending Outbox work.
+            </li>
+            <li>
+              MQTT delivery alone does not complete Storage; final success comes
+              from the central operation-result response.
+            </li>
+            <li>
+              Do not create a replacement transaction while the original
+              transaction is still awaiting authoritative confirmation.
+            </li>
+          </ul>
+          <footer class="page-footer">
+            <span>RFID Warehouse Track and Trace · SICK</span
+            ><span>System 1.0.0 · Documentation 1.0.0</span>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="../assets/js/manual.js"></script>
+  </body>
+</html>

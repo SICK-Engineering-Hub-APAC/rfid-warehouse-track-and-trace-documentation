@@ -1,0 +1,12 @@
+{
+  "name": "warehouse-track-and-trace-documentation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/Build-Site.ps1",
+    "check": "node tools/check-site.mjs _site"
+  },
+  "devDependencies": {
+    "parse5": "^7.3.0"
+  }
+}
